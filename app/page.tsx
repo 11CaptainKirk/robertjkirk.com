@@ -82,10 +82,10 @@ export default function Home() {
   return (
     <div className="font-sans  items-center justify-items-center  ">
       <main className="flex flex-col gap-8 row-start-2 items-center  relative bg-slate-900 w-full ">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        <div className=" w-full h-screen   dark:bg-black/[0.96] antialiased dark:bg-grid-white/[0.05] bg-white/[0.96] bg-grid-black/[0.04] relative  overflow-hidden items-center justify-center pt-36">
+        <div className=" w-full sm:h-screen  dark:bg-black/[0.96] antialiased dark:bg-grid-white/[0.05] bg-white/[0.96] bg-grid-black/[0.04] relative  overflow-hidden items-center justify-center pt-36">
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white z-0 [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]" />
           <Spotlight
-            className="top-24 h-full w-[800px] sm:w-[800px]  absolute left-1/3 md:left-1/3 md:top-12 lg:top-0 xl:-top-32   z-0 "
+            className="top-24 h-full w-[800px] sm:w-[800px]  absolute left-1/3 md:left-1/3 md:top-12 lg:top-0 xl:-top-32   z-10 "
             fill="white"
           />
           <div className=" p-4 max-w-7xl  mx-auto relative md:pt-0 flex gap-8 flex-col  ">

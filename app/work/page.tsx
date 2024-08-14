@@ -18,7 +18,7 @@ export default function Work() {
               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
             </div>
           </div>
-          <BackgroundBeams className="dark:invert-0 invert hue-rotate-180 dark:hue-rotate-0" />
+          <BackgroundBeams className="dark:invert-0 invert hue-rotate-180 dark:hue-rotate-0 transform-gpu" />
         </div>
       </main>
     </div>

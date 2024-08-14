@@ -2,6 +2,9 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import { PinContainer } from "@/components/ui/3d-pin";
 import { Mail } from "lucide-react";
 import { Suspense } from "react";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
+import { LampContainer } from "@/components/ui/lamp";
 
 const socials = [
   {
@@ -73,9 +76,9 @@ const socials = [
 
 export default function Contact() {
   return (
-    <div className="font-sans  items-center justify-items-center  ">
-      <main className="flex flex-col gap-8 row-start-2 items-center  relative bg-slate-900 w-full ">
-        <div className="h-screen w-full rounded-md bg-neutral-50 dark:bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+    <div className="font-sans w-full flex items-center justify-items-center  ">
+      <div className="flex flex-col gap-8 row-start-2 items-center  relative bg-slate-900 w-full ">
+        <div className="h-screen w-full rounded-3xl bg-neutral-50 dark:bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
           <div className="max-w-2xl mx-auto p-4 flex flex-col gap-4 justify-center items-center">
             {/* <div className="hidden w-screen h-px  animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" /> */}
             <h1 className="py-1 font-display font-semibold px-0.5 z-10 text-5xl text-transparent duration-700  bg-gradient-to-b from-neutral-500 to-neutral-900 dark:from-neutral-200 dark:to-neutral-600  cursor-default text-edge-outline animate-title  sm:text-7xl md:text-9xl whitespace-nowrap bg-clip-text ">
@@ -91,7 +94,7 @@ export default function Contact() {
             </p>
 
             <Suspense fallback={<div>Loading...</div>}>
-              <div className="flex flex-row flex-wrap max-w-screen-md animate-fade-in">
+              <div className="flex flex-row flex-wrap justify-center max-w-screen-md animate-fade-in">
                 {socials.map((item, idx) => (
                   <PinContainer
                     title={item.title}
@@ -106,9 +109,16 @@ export default function Contact() {
               </div>
             </Suspense>
           </div>
-          <BackgroundBeams className="dark:invert-0 invert hue-rotate-180 dark:hue-rotate-0" />
+          <div
+            className="absolute  pointer-events-none inset-0 flex items-center justify-center
+ dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]"
+          >
+            <ShootingStars className="dark:invert-0 invert hue-rotate-180 dark:hue-rotate-0 transform-gpu " />
+            <StarsBackground className="dark:invert-0 invert hue-rotate-180 dark:hue-rotate-0 transform-gpu" />
+          </div>
+          {/* <BackgroundBeams className="dark:invert-0 invert hue-rotate-180 dark:hue-rotate-0" /> */}
         </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -39,7 +39,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="font-display">
+          <header className="font-display ">
             <Header />
           </header>
           {children}
