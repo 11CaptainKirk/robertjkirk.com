@@ -98,7 +98,7 @@ export default function Contact() {
                     href={item.href}
                     key={item.title}
                   >
-                    <div className="flex  flex-col p-1 tracking-tight   sm:basis-1/2 w-[3rem] h-[3rem] justify-center items-center  ">
+                    <div className="flex  flex-col p-1 tracking-tight  sm:basis-1/2 w-[3rem] h-[3rem] justify-center items-center  ">
                       {item.icon}
                     </div>
                   </PinContainer>

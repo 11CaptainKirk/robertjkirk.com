@@ -1,5 +1,5 @@
 import { Spotlight } from "@/components/ui/spotlight";
-import { HoverEffect } from "@/components/ui/card-hover-effect";
+import { HoverHome } from "@/components/ui/card-hover-home";
 import { FlipWords } from "@/components/ui/flip-words";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { ReactNode } from "react";
@@ -98,7 +98,7 @@ export default function Home() {
               className="max-w-screen-sm px-4 text-center sm:text-2xl text-lg  mx-auto"
             />
             <div className="flex flex-col mt-12">
-              <HoverEffect items={projects} />
+              <HoverHome items={projects} />
             </div>
           </div>
         </div>
