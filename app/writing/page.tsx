@@ -1,8 +1,8 @@
 import { BackgroundBeams } from "@/components/ui/background-beams";
-import { HoverGrid } from "@/components/ui/card-hover-grid";
+import { HoverGrid, CardSize, Item } from "@/components/ui/card-hover-grid";
 import { HoverHome } from "@/components/ui/card-hover-home";
 
-const items = [
+const items: Item[] = [
   {
     date: new Date().toISOString(),
     title: "How to write a blog post",

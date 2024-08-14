@@ -83,7 +83,7 @@ export default function Home() {
     <div className="font-sans  items-center justify-items-center  ">
       <main className="flex flex-col gap-8 row-start-2 items-center  relative bg-slate-900 w-full ">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        <div className=" w-full h-screen  dark:bg-black/[0.96] antialiased dark:bg-grid-white/[0.05] bg-white/[0.96] bg-grid-black/[0.04] relative  overflow-hidden items-center justify-center pt-36">
+        <div className=" w-full h-screen   dark:bg-black/[0.96] antialiased dark:bg-grid-white/[0.05] bg-white/[0.96] bg-grid-black/[0.04] relative  overflow-hidden items-center justify-center pt-36">
           <Spotlight
             className="top-24 h-full w-[800px] sm:w-[800px]  absolute left-1/3 md:left-1/3 md:top-12 lg:top-0 xl:-top-32   z-0 "
             fill="white"
@@ -97,7 +97,7 @@ export default function Home() {
               perWordDuration={0.05}
               className="max-w-screen-sm px-4 text-center sm:text-2xl text-lg  mx-auto"
             />
-            <div className="flex flex-col mt-12">
+            <div className="flex flex-col my-auto mt-12">
               <HoverHome items={projects} />
             </div>
           </div>

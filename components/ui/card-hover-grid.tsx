@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ReactNode, useState } from "react";
 import { Badge } from "./badge";
 
-type CardSize = "small" | "medium" | "large";
+export type CardSize = "small" | "medium" | "large";
 
 const sizeMap = {
   small: "col-span-1 row-span-1",
@@ -15,22 +15,23 @@ const sizeMap = {
   large: "md:col-span-2 col-span-1 row-span-2 ",
 };
 
+export interface Item {
+  title?: string;
+  icon?: React.ReactNode;
+  image?: ReactNode;
+  description?: string;
+  date?: string;
+  link?: string;
+  newTab?: boolean;
+  size?: CardSize;
+  tags?: string[];
+}
+
 export const HoverGrid = ({
   items,
   className,
 }: {
-  items: {
-    metaTitle: string;
-    title?: string;
-    icon?: React.ReactNode;
-    image?: ReactNode;
-    description?: string;
-    date?: string;
-    link: string;
-    newTab?: boolean;
-    size?: CardSize;
-    tags?: string[];
-  }[];
+  items: Item[];
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -44,7 +45,7 @@ export const HoverGrid = ({
     >
       {items.map((item, idx) => (
         <Link
-          href={item?.link}
+          href={item?.link ?? "/"}
           key={item?.link}
           target={item.newTab ? "_blank" : undefined}
           className={clsx(
@@ -71,11 +72,7 @@ export const HoverGrid = ({
               />
             )}
           </AnimatePresence>
-          {item.metaTitle && (
-            <h6 className="text-center pb-3 text-sm md:text-base font-medium relative z-50 ">
-              {item.metaTitle}
-            </h6>
-          )}
+
           <Card>
             {item.date && (
               <div className="flex text-sm text-neutral-500 ">
@@ -127,7 +124,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-3xl p-4   dark:bg-black bg-zinc-800 backdrop-blur-3xl border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 flex-1",
+        "rounded-3xl p-4  dark:bg-black/50 bg-zinc-800 backdrop-blur-sm border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 flex-1",
         className
       )}
     >
@@ -147,7 +144,7 @@ export const CardTitle = ({
   return (
     <h4
       className={cn(
-        "text-zinc-100 font-bold text-lg tracking-wide ",
+        "text-zinc-100 font-semibold text-xl tracking-wide ",
         className
       )}
     >
@@ -164,10 +161,7 @@ export const CardDescription = ({
 }) => {
   return (
     <p
-      className={cn(
-        "mt-6 text-zinc-400 tracking-wide leading-relaxed text-sm",
-        className
-      )}
+      className={cn("mt-6 text-zinc-400 leading-relaxed text-base", className)}
     >
       {children}
     </p>

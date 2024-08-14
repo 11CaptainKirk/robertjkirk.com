@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { LinkPreview } from "@/components/ui/link-preview";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { HoverLink, HoverLinks } from "@/components/ui/card-hover-links";
 import { ChevronDown, Menu } from "lucide-react";
 import { headers } from "next/headers";
@@ -34,9 +32,9 @@ export default function HeaderBar() {
         <Image
           src="/rk-logo.svg"
           alt="logo"
-          width={60}
+          width={70}
           height={30}
-          className="dark:invert fixed top-6 left-8  z-10  opacity-20 hover:opacity-100 transition-all duration-500 scale-100 hover:scale-110"
+          className="dark:invert fixed top-6 left-8  z-10  opacity-30 hover:opacity-100 transition-all duration-500 scale-100 hover:scale-110"
         />
       </Link>
 
