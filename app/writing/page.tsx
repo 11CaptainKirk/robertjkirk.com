@@ -1,6 +1,7 @@
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { HoverGrid, CardSize, Item } from "@/components/ui/card-hover-grid";
 import { HoverHome } from "@/components/ui/card-hover-home";
+import { compileMDX } from "next-mdx-remote/rsc";
 
 const items: Item[] = [
   {
@@ -85,23 +86,89 @@ const items: Item[] = [
     link: "https://robertkirk.org",
   },
 ];
+import fs from "node:fs";
+import path from "node:path";
+const contentDir = "app/writing/content";
 
-export default function Writing() {
+async function getPosts() {
+  const targets = fs.readdirSync(path.join(process.cwd(), contentDir), {
+    recursive: true,
+  });
+
+  // Declare an empty array to store the files
+  const files = [];
+
+  for (const target of targets) {
+    // If the target is a directory, skip it, otherwise add it to the files array
+    if (
+      fs
+        .lstatSync(path.join(process.cwd(), contentDir, target.toString()))
+        .isDirectory()
+    ) {
+      continue;
+    }
+
+    // Built the files array
+    files.push(target);
+  }
+
+  //  const source = fs.readFileSync(
+  //    path.join(process.cwd(), contentDir, params.slug.join("/")) + ".mdx",
+  //    "utf8"
+  //  );
+  let posts: Item[] = [];
+
+  for (const file of files) {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), contentDir, file.toString()),
+      "utf8"
+    );
+    const { frontmatter } = await compileMDX({
+      source,
+      options: {
+        parseFrontmatter: true,
+      },
+    });
+    posts.push({
+      title: frontmatter.title as string,
+      description: frontmatter.description as string,
+      date: frontmatter.date as string,
+      // link: `/writing/${file
+      //   .join()
+      //   .replace(".mdx", "")
+      //   .replace(" ", "-")
+      //   .trimEnd()}`,
+      link: `/writing/${file
+        .toString()
+        .replaceAll(" ", "-")
+        .replace(".mdx", "")}`,
+      size: frontmatter.size as CardSize,
+    });
+  }
+
+  // const { frontmatter } = await compileMDX({
+  //   source,
+  //   options: {
+  //     parseFrontmatter: true,
+  //   },
+  //   components,
+  // });
+
+  return posts;
+}
+
+export default async function Writing() {
+  const posts = await getPosts();
   return (
-    <div className="font-sans  items-center justify-items-center ">
-      <main className="flex flex-col gap-8 row-start-2 items-center  relative dark:bg-neutral-950 w-full z-0  ">
-        <div className=" w-full rounded-md bg-neutral-50 dark:bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
-          <div className="max-w-2xl mx-auto p-4 flex flex-col gap-4 justify-center items-center pt-32">
-            <h1 className="py-1 font-display font-semibold px-0.5 z-10 text-5xl text-transparent duration-700  bg-gradient-to-b from-neutral-500 to-neutral-900 dark:from-neutral-200 dark:to-neutral-600  cursor-default text-edge-outline animate-title  sm:text-7xl md:text-9xl whitespace-nowrap bg-clip-text ">
-              writing
-            </h1>
-          </div>
-          <div className="max-w-screen-xl mx-auto p-4 flex flex-col gap-4 justify-center items-center py-32">
-            <HoverGrid items={items} />
-          </div>
-          <BackgroundBeams className="dark:invert-0 invert hue-rotate-180 dark:hue-rotate-0 transform-gpu" />
-        </div>
-      </main>
-    </div>
+    <>
+      <div className="max-w-2xl mx-auto p-4 flex flex-col gap-4 justify-center items-center">
+        <h1 className="py-1 font-display font-semibold px-0.5 z-10 text-5xl text-transparent duration-700  bg-gradient-to-b from-neutral-500 to-neutral-900 dark:from-neutral-200 dark:to-neutral-600  cursor-default text-edge-outline animate-title  sm:text-7xl md:text-9xl whitespace-nowrap bg-clip-text ">
+          writing
+        </h1>
+      </div>
+      <div className="max-w-screen-xl mx-auto p-4 flex flex-col gap-4 justify-center items-center py-16">
+        <HoverGrid items={posts} />
+      </div>
+    </>
   );
 }

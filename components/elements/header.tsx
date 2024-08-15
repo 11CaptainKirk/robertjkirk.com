@@ -34,7 +34,7 @@ export default function HeaderBar() {
           alt="logo"
           width={70}
           height={30}
-          className="dark:invert fixed top-6 left-8  z-10  opacity-30 hover:opacity-100 transition-all duration-500 scale-100 hover:scale-110"
+          className="dark:invert fixed top-6 left-8  z-10  opacity-70 hover:opacity-100 transition-all duration-500 scale-100 hover:scale-110"
         />
       </Link>
 

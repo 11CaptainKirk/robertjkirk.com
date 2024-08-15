@@ -39,7 +39,7 @@ export const HoverGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 grid-flow-dense justify-center",
+        "grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3  grid-flow-dense justify-center",
         className
       )}
     >
@@ -49,7 +49,7 @@ export const HoverGrid = ({
           key={item?.link}
           target={item.newTab ? "_blank" : undefined}
           className={clsx(
-            "relative group  sm:min-h-full  p-4 flex flex-col min-w-full sm:min-w-0   ",
+            "relative group  sm:min-h-full p-4 -m-4 flex flex-col min-w-full sm:min-w-0   ",
             sizeMap[item.size || "small"]
           )}
           onMouseEnter={() => setHoveredIndex(idx)}
@@ -58,16 +58,17 @@ export const HoverGrid = ({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full  bg-neutral-200 dark:bg-zinc-100/[0.05] backdrop-blur-lg block  rounded-3xl"
+                className="absolute inset-0 h-full  bg-zinc-500/10 dark:bg-zinc-100/[0.05] backdrop-blur-sm block  rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
-                  transition: { duration: 0.15 },
+                  transition: { duration: 0.5 },
                 }}
                 exit={{
                   opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
+
+                  transition: { duration: 0.25, delay: 0.2 },
                 }}
               />
             )}
@@ -124,12 +125,13 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-3xl p-4  dark:bg-black/50 bg-zinc-800 backdrop-blur-sm border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 flex-1",
+        // "rounded-3xl p-4   dark:bg-black/50 bg-zinc-800 backdrop-blur-sm border border-transparent dark:border-white/[0.1] group-hover:border-slate-700 relative z-20 flex-1",
+        " rounded-3xl dark:bg-black bg-white backdrop-blur-sm border  dark:border-white/[0.1] border-black/[0.1] group-hover:border-slate-700 relative z-20 flex-1 transition-all duration-500",
         className
       )}
     >
       <div className="relative z-50 h-full">
-        <div className="p-4 h-full flex flex-col ">{children}</div>
+        <div className="p-6 h-full flex flex-col ">{children}</div>
       </div>
     </div>
   );
@@ -144,7 +146,7 @@ export const CardTitle = ({
   return (
     <h4
       className={cn(
-        "text-zinc-100 font-semibold text-xl tracking-wide ",
+        "dark:text-zinc-100 text-zinc-900  font-semibold text-2xl tracking-wide ",
         className
       )}
     >
