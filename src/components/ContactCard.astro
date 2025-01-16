@@ -1,0 +1,52 @@
+---
+// src/components/SidebarInfo.astro
+import { MapPin, Mail, Linkedin, Twitter, Clock } from "lucide-react";
+
+interface Props {
+  email?: string;
+  twitter?: string;
+  linkedin?: string;
+}
+
+const {
+  email = "hello@robertkirk.com",
+  twitter = "",
+  linkedin = "/in/robertjkirk",
+} = Astro.props;
+---
+
+<div class="rounded-2xl p-4 flex flex-col justify-between pr-8">
+  <div class="space-y-4">
+    <h2 class="text-2xl font-medium text-blue-500">Reach Out</h2>
+    <div class="space-y-3">
+      <a
+        target="_blank"
+        href={`mailto:${email}`}
+        class="flex items-center gap-2 text-blue-400 hover:text-blue-600 transition-colors"
+      >
+        <Mail size={18} />
+        <span>{email}</span>
+      </a>
+      {
+        twitter.length > 0 && (
+          <a
+            target="_blank"
+            href={`https://twitter.com/${twitter.replace("@", "")}`}
+            class="flex items-center gap-2 text-blue-400 hover:text-blue-600 transition-colors"
+          >
+            <Twitter size={18} />
+            <span>{twitter}</span>
+          </a>
+        )
+      }
+      <a
+        target="_blank"
+        href={`https://linkedin.com/in/${linkedin}`}
+        class="flex items-center gap-2 text-blue-400 hover:text-blue-600 transition-colors"
+      >
+        <Linkedin size={18} />
+        <span>{linkedin}</span>
+      </a>
+    </div>
+  </div>
+</div>

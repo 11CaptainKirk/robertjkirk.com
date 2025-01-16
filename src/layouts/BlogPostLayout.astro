@@ -1,0 +1,58 @@
+---
+import Layout from "./Layout.astro";
+
+// src/layouts/BlogPostLayout.astro
+const { postData } = Astro.props;
+---
+
+<Layout>
+<div
+  class="min-h-screen  p-4 xl:p-8"
+>
+  <div class="max-w-3xl mx-auto">
+    <!-- Header with Back Link -->
+    <!-- <nav class="mb-12">
+      <a 
+        href="/writing" 
+        class="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center gap-2"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Back 
+      </a>
+    </nav> -->
+
+    <!-- Article -->
+    <article
+      class="bg-white rounded-3xl p-6 md:p-12 shadow-sm border border-gray-100"
+    >
+      <header class="mb-8">
+        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+          <time datetime={postData.date}>{postData.formattedDate}</time>
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"
+          ></span>
+          <span>{postData.readingTime} min read</span>
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          {postData.title}
+        </h1>
+        <p class="text-xl text-gray-600">
+          {postData.description}
+        </p>
+        {
+          postData.tags.map((tag) => {
+            <span class="inline-block bg-gray-100 text-gray-500 text-sm px-2 py-1 rounded-full mt-4 mr-2">
+              {tag}
+            </span>;
+          })
+        }
+
+        <hr class="my-8 mb-12 border-t border-gray-300" />
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-lg prose-gray max-w-none">
+        <slot />
+      </div>
+    </article>
+  </div>
+</div>
+</Layout>

@@ -1,22 +1,176 @@
+---
+const currentYear = new Date().getFullYear();
+import astroLogo from "../assets/rjk.svg";
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="en" class="bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Robert Kirk</title>
+  </head>
+  <body class="">
+    <a href="/" class="fixed z-50 left-4 top-4 xl:left-8 xl:top-8 transition-all antialiased hover:scale-[1.02] ">
+      <svg
+        width="60"
+        height="40"
+        viewBox="0 0 949 602"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g clip-path="url(#clip0_1_11)">
+          <path
+            d="M398.411 408.5C437.984 391.325 468.532 366.53 490.056 334.115C511.58 301.7 522.328 263.149 522.3 218.46C522.3 173.716 511.689 135.007 490.468 102.331C469.246 69.6555 439.028 44.4349 399.812 26.6692C360.5 8.82119 314.177 -0.0684959 260.841 0.000150378H0V113.514H252.929C294.81 113.514 326.656 122.547 348.468 140.615C370.28 158.683 381.173 184.631 381.145 218.46C381.145 251.726 370.253 277.516 348.468 295.831C326.683 314.146 294.837 323.324 252.929 323.365H0V602H139.404V434.325H267.62L383.762 602H533.488L398.411 408.5Z"
+            fill="#3C82F6"></path>
+          <path
+            d="M684.821 268.297L934.351 0H779.495L561.097 230.342C559.304 277.708 546.365 319.864 522.609 355.656C504.974 382.114 482.117 404.693 455.442 422.01L490.859 472.712L593.753 365.5L786.479 602H949.103L684.821 268.297Z"
+            fill="#3C82F6"></path>
+          <path
+            d="M490.756 472.712L455.339 422.01C482.014 404.693 504.87 382.114 522.506 355.656C546.262 319.864 559.201 277.77 560.994 230.342C560.994 230.342 591.219 356.933 490.756 472.712Z"
+            fill="#3C82F6"></path>
+        </g>
+        <defs>
+          <clipPath id="clip0_1_11">
+            <rect width="949" height="602" fill="white"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </a>
+    <div
+      class="xl:fixed xl:left-8 xl:top-24 xl:-translate-y-0 sticky top-4 z-50 transition-all duration-300"
+    >
+      <div class="w-fit mx-auto xl:mx-0">
+        <header
+          class="bg-white/30 backdrop-blur-md rounded-full shadow-md border border-white/20 transition-all duration-300 hover:bg-white/70"
+        >
+          <!-- Navigation - vertical on desktop, horizontal on mobile -->
+          <nav
+            class="flex xl:flex-col items-center gap-2 xl:h-auto px-1 py-1"
+          >
+            <!-- Logo -->
+
+            <!-- Center Icons -->
+            <div class="flex xl:flex-col items-center gap-1 xl:pt-0">
+              <!-- <button class="p-3 rounded-md hover:bg-black/5 transition-all duration-300 group">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text"><path d="M12 7v14"/><path d="M16 12h2"/><path d="M16 8h2"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/><path d="M6 12h2"/><path d="M6 8h2"/></svg>
+                        <p class="  ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+    Hello, world</p>
+						</button> -->
+              <a
+			  href="/writing"
+                class="py-2 px-3 xl:p-3 rounded-md hover:bg-black/5 xl:rounded-bl-md xl:rounded-tr-3xl rounded-tl-3xl rounded-bl-3xl transition-all duration-300 group flex items-center gap-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-book-open-text"
+                >
+                  <path d="M12 7v14"></path>
+                  <path d="M16 12h2"></path>
+                  <path d="M16 8h2"></path>
+                  <path
+                    d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                  ></path>
+                  <path d="M6 12h2"></path>
+                  <path d="M6 8h2"></path>
+                </svg>
+              </a>
+
+              <a
+			  href="timeline"
+                class="py-2 px-3 xl:p-3 rounded-md hover:bg-black/5 transition-all duration-300 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-history"
+                  ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                  ></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"
+                  ></path></svg
+                >
+              </a>
+              <a
+			  href="contact"
+                class="py-2 px-3 xl:p-3 rounded-md xl:rounded-bl-3xl rounded-br-3xl rounded-bl-md rounded-tr-3xl xl:rounded-tr-md  hover:bg-black/5 transition-all duration-300 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-book-user"
+                  ><path d="M15 13a3 3 0 1 0-6 0"></path><path
+                    d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                  ></path><circle cx="12" cy="8" r="2"></circle></svg
+                >
+              </a>
+            </div>
+
+            <!-- Share Icon -->
+          </nav>
+        </header>
+      </div>
+    </div>
+    <div class="xl:h-0 h-4 transition-all"></div>
+
+    <slot />
+    <footer
+      class="relative max-w-5xl mx-auto w-full mt-8 py-4 border-t border-gray-200"
+    >
+      <div class="flex flex-row justify-between px-8 lg:px-0 transition-all">
+        <div class="text-center text-sm text-gray-300">
+          Copyright &copy; {currentYear} Robert Kirk. All rights reserved.
+        </div>
+        <div class="flex flex-row gap-4 ">
+          <a
+		  href="/privacy"
+            class="text-center text-sm text-gray-300 hover:underline cursor-pointer"
+          >
+            Privacy
+          </a>
+          <a
+		  href="/terms"
+            class="text-center text-sm text-gray-300 hover:underline cursor-pointer"
+          >
+            Terms
+          </a>
+        </div>
+      </div>
+      <div class="h-24"></div>
+      <div class="absolute w-full inset-x-0 -bottom-10">
+        <img loading="lazy" src={astroLogo.src} alt="Astro Homepage" />
+      </div>
+    </footer>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>

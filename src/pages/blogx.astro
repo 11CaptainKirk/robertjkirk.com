@@ -1,0 +1,81 @@
+---
+// src/pages/blogx.astro
+---
+
+<div class="min-h-screen bg-gradient-to-br from-gray-50 to-white p-6 md:p-12">
+  <div class="max-w-5xl mx-auto">
+    <!-- Header with Back Link -->
+    <nav class="mb-12">
+      <a
+        href="/"
+        class="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center gap-2"
+      >
+        ← Back to Portfolio
+      </a>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900">Blog</h1>
+      <p class="text-xl text-gray-600 mt-2">
+        Thoughts on design and development
+      </p>
+    </header>
+
+    <!-- Blog Posts Grid -->
+    <div class="space-y-6">
+      {/* Latest Post */}
+      <article
+        class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
+      >
+        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+          <span>January 15, 2025</span>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+        <h2 class="text-2xl font-medium text-gray-900 mb-3">
+          Designing for Scale: Lessons Learned
+        </h2>
+        <p class="text-gray-600">
+          Exploring the challenges and solutions in creating design systems that
+          scale effectively across large organizations.
+        </p>
+      </article>
+
+      {/* Previous Posts */}
+      <article
+        class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
+      >
+        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+          <span>January 10, 2025</span>
+          <span>•</span>
+          <span>4 min read</span>
+        </div>
+        <h2 class="text-2xl font-medium text-gray-900 mb-3">
+          The Future of User Interfaces
+        </h2>
+        <p class="text-gray-600">
+          Examining emerging trends in UI design and how they're shaping the
+          future of digital interactions.
+        </p>
+      </article>
+
+      <article
+        class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
+      >
+        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+          <span>January 5, 2025</span>
+          <span>•</span>
+          <span>3 min read</span>
+        </div>
+        <h2 class="text-2xl font-medium text-gray-900 mb-3">
+          Building Better Design Systems
+        </h2>
+        <p class="text-gray-600">
+          A deep dive into creating and maintaining effective design systems
+          that work for everyone.
+        </p>
+      </article>
+    </div>
+  </div>
+</div>

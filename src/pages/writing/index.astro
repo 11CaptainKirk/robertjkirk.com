@@ -1,0 +1,62 @@
+---
+// src/pages/blog/index.astro
+import { getCollection } from "astro:content";
+import TimelineEntry from "../../components/TimelineEntry.astro";
+import Layout from "../../layouts/Layout.astro";
+
+// Get all blog posts and sort by date
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+---
+
+<Layout>
+<div class="min-h-screen  p-4 md:p-8">
+  <div       class="bg-white rounded-3xl mx-auto max-w-3xl p-6 md:p-12 shadow-sm border border-gray-100">
+    <!-- Header with Back Link -->
+  
+
+    <!-- Blog Header -->
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900">Writing</h1>
+      <p class="text-xl text-gray-600 mt-2">
+        Thoughts on design and development
+      </p>
+    </header>
+
+    <!-- Blog Posts Grid -->
+    <div class="space-y-6">
+      {
+        sortedPosts.map((post, index) => (
+          // <article class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+          //   <a href={`/writing/${post.slug}`} class="block">
+          //     <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+          //       <span>{post.data.formattedDate}</span>
+          //       <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+          //       <span>{post.data.readingTime} min read</span>
+          //     </div>
+          //     <h2 class="text-2xl font-medium text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+          //       {post.data.title}
+          //     </h2>
+          //     <p class="text-gray-600">
+          //       {post.data.description}
+          //     </p>
+          //   </a>
+          // </article>
+          <TimelineEntry
+            title={post.data.title}
+            description={post.data.description}
+            tags={[
+              post.data.formattedDate,
+              post.data.readingTime + " min read",
+            ]}
+            href={`/writing/${post.slug}`}
+            featuredText={index === 0 ? "New" : ""}
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>
+</Layout>

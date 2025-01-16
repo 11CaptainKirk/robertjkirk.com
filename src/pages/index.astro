@@ -1,11 +1,308 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
+import { getCollection } from "astro:content";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import ContactCard from "../components/ContactCard.astro";
+import TimelineEntry from "../components/TimelineEntry.astro";
+
+import astroLogo from "../assets/rjk.svg";
+import Layout from "../layouts/Layout.astro";
+
+// Get all blog posts and sort by date
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+
+// Get the latest post and the rest
+const [latestPost, ...previousPosts] = sortedPosts;
+
+// Get current year for footer
+const currentYear = new Date().getFullYear();
 ---
 
 <Layout>
-	<Welcome />
+  <div class="min-h-screen -pt-96 p-4 md:p-8 flex flex-col">
+    <div class="max-w-5xl mx-auto space-y-8 flex-grow">
+      <!-- Header Section -->
+      <!-- <header class="text-center space-y-3 mb-4">
+      <h1 class="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+        Robert Kirk
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 font-light">
+        Building the future of digital experiences
+      </p>
+    </header> -->
+
+      <!-- About Section -->
+      <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="md:col-span-2 bg-gradient-to-br from-gray-600 to-gray-700 rounded-3xl p-8 text-white">
+        <h2 class="text-2xl font-medium mb-4">About</h2>
+        <p class="text-gray-200 leading-relaxed">
+          Product designer and developer with 8+ years of experience crafting digital solutions. 
+          Focused on creating intuitive interfaces that bridge the gap between human needs and technological possibilities.
+        </p>
+        <div class="mt-6 flex gap-4">
+          <span class="bg-gray-200/10 rounded-full px-4 py-1 text-sm text-gray-300">Product Development</span>
+          <span class="bg-gray-800/50 rounded-full px-4 py-1 text-sm text-gray-300">Embedded Systems</span>
+          <span class="bg-gray-800/50 rounded-full px-4 py-1 text-sm text-gray-300">Contemporary UX</span>
+        </div>
+      </div>
+      <ContactCard
+    email="hello@robertkirk.com"
+    linkedin="robertjkirk"
+  />
+  </div> -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="md:col-span-3 bg-white rounded-3xl text-white">
+          <div class="flex flex-col md:flex-row gap-2">
+            <div class="bg-blue-200/30 rounded-2xl m-4">
+              <div class="flex-grow p-8">
+                <h2 class="text-2xl text-blue-500 font-medium mb-4">
+                  Hi, I'm Rob
+                </h2>
+                <p class="text-gray-800 leading-relaxed">
+                  I’m an electrical and computer engineering student with an
+                  entrepreneurial spirit at the University of Texas at Austin.
+                  Reach out if you’d like to work together.
+                </p>
+              </div>
+            </div>
+            <div class="md:w-1/3 flex items-center">
+              <ContactCard
+                email="hello@robertkirk.com"
+                linkedin="robertjkirk"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Timeline Section -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-100">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-medium text-gray-900">Timeline</h2>
+            <a
+              href="/writing"
+              class="text-sm text-gray-600 hover:text-blue-600 transition-colors flex-row flex justify-center items-center gap-1"
+            >
+              Full Timeline
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="space-y-3">
+            <TimelineEntry
+              title="Vehicle Firmware System Integration Engineer"
+              tags={["Tesla", "Internship", "Summer 2025"]}
+            />
+            <TimelineEntry
+              title="BIOS Firmware Engineer"
+              tags={["AMD", "Internship", "Spring 2025"]}
+              description="Developing AGESA BIOS firmware for next-gen AMD processors"
+              featuredText="Current Position"
+            />
+            <TimelineEntry
+              title="Software Engineer"
+              tags={["Keysight", "Internship", "Summer 2023"]}
+              description="Developing software for Keysight products"
+            />
+            <a
+              href="/timeline"
+              title="View Full Timeline"
+              class="text-center w-full flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-ellipsis-vertical"
+                ><circle cx="12" cy="12" r="1"></circle><circle
+                  cx="12"
+                  cy="5"
+                  r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg
+              >
+            </a>
+            <!-- <div class="group bg-white rounded-xl p-4 cursor-pointer hover:bg-gray-50 transition-all border border-gray-200">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+			</div> -->
+          </div>
+
+          <p class="text-gray-300 text-xs mt-2">
+            Click on each entry to learn more about my experience.
+          </p>
+
+          <!-- <button class="mt-6 text-sm text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1">
+          View full timeline
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button> -->
+        </div>
+
+        <!-- Writing Section -->
+        <div class="bg-white rounded-3xl p-8 border border-gray-100">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-medium text-gray-900">Writing</h2>
+            <a
+              href="/writing"
+              class="text-sm text-gray-600 hover:text-blue-600 transition-colors flex-row flex justify-center items-center gap-1"
+            >
+              All Posts
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- {latestPost && (
+    
+          <article class="bg-gray-50 rounded-2xl p-6 mb-6 border border-gray-100">
+            <a href={`/writing/${latestPost.slug}`} class="block">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-sm font-medium text-blue-600">Latest Post</span>
+                <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              </div>
+              <h3 class="text-xl font-medium hover:text-blue-600 transition-colors">
+                {latestPost.data.title}
+              </h3>
+              <p class="text-gray-600 mt-2 line-clamp-2">
+                {latestPost.data.description}
+              </p>
+              <div class="flex items-center gap-2 mt-4 text-sm text-gray-500">
+                <span>{latestPost.data.formattedDate}</span>
+                <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+                <span>{latestPost.data.readingTime} min read</span>
+              </div>
+            </a>
+          </article>
+        )}
+
+        <div class="space-y-4">
+          {previousPosts.slice(0, 3).map(post => (
+            <article class="group bg-white rounded-xl p-4 cursor-pointer hover:bg-gray-50 transition-all border border-gray-100">
+              <a href={`/writing/${post.slug}`} class="block">
+                <h3 class="font-medium group-hover:text-blue-600 transition-colors">
+                  {post.data.title}
+                </h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-sm text-gray-500">{post.data.formattedDate}</span>
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+                  <span class="text-sm text-gray-500">{post.data.readingTime} min read</span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div> -->
+
+          {
+            !latestPost && (
+              <div class="text-gray-400 text-sm">
+                No posts available at the moment.
+              </div>
+            )
+          }
+          <div class="space-y-3">
+            {
+              latestPost && (
+                <TimelineEntry
+                  title={latestPost.data.title}
+                  featuredText="Latest Post"
+                  tags={[
+                    latestPost.data.formattedDate,
+                    latestPost.data.readingTime + " min read",
+                  ]}
+                  description={latestPost.data.description}
+                  href={`/writing/${latestPost.slug}`}
+                  metadata={[
+                    latestPost.data.formattedDate,
+                    `${latestPost.data.readingTime} min read`,
+                  ]}
+                  className="bg-gray-50 rounded-2xl p-6 mb-6 border border-gray-100"
+                />
+              )
+            }
+
+            {
+              previousPosts
+                .slice(0, 3)
+                .map((post) => (
+                  <TimelineEntry
+                    key={post.slug}
+                    title={post.data.title}
+                    tags={[
+                      post.data.formattedDate,
+                      post.data.readingTime + " min read",
+                    ]}
+                    description=""
+                    href={`/writing/${post.slug}`}
+                    metadata={[
+                      post.data.formattedDate,
+                      `${post.data.readingTime} min read`,
+                    ]}
+                    className="group bg-white rounded-xl p-4 cursor-pointer hover:bg-gray-50 transition-all border border-gray-100"
+                  />
+                ))
+            }
+            <a
+              href="/timeline"
+              title="View Full Timeline"
+              class="text-center hover:scale-110 transition-all w-full flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-ellipsis-vertical"
+                ><circle cx="12" cy="12" r="1"></circle><circle
+                  cx="12"
+                  cy="5"
+                  r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
