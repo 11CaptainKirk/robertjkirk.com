@@ -1,0 +1,30 @@
+---
+// src/pages/404.astro
+import Layout from "../layouts/Layout.astro"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found</title>
+</head>
+<Layout>
+<div class="h-screen flex items-center justify-center  bg-gray-100 text-gray-800">
+    <div class="flex items-center flex-col gap-4">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-angry self-center"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><path d="M7.5 8 10 9"/><path d="m14 9 2.5-1"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg> -->
+        
+        <h1 class="text-9xl font-bold text-gray-800/5">404</h1>
+        <h1 class="text-6xl font-bold text-gray-800">Page Not Found</h1>
+  <p class="mt-4 text-lg text-gray-500">You might be lost.</p>
+  <a href="/" class="mt-6 ">
+    <div class=" py-2  text-blue-700 hover:text-blue-500 font-medium flex flex-row gap-2 rounded-xl">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+    Take me home
+    </div>  
+  </a>
+  </div>
+</di>
+</Layout>
+</html>

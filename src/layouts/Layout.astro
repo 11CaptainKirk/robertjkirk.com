@@ -15,6 +15,7 @@ import astroLogo from "../assets/rjk.svg";
   <body class="">
     <a
       href="/"
+	  aria-label="rk logo"
       class="fixed z-60 left-4 top-4 xl:left-8 xl:top-8 transition-all antialiased hover:scale-[1.02]"
     >
       <svg
@@ -62,6 +63,7 @@ import astroLogo from "../assets/rjk.svg";
 						</button> -->
               <a
                 href="/"
+				  aria-label="home"
                 class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 xl:rounded-bl-md xl:rounded-tr-3xl rounded-tl-3xl rounded-bl-3xl transition-all duration-300 group flex items-center gap-2"
               >
                 <svg
@@ -74,6 +76,7 @@ import astroLogo from "../assets/rjk.svg";
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+				
                   class="lucide lucide-house"
                   ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
                   ></path><path
@@ -84,6 +87,7 @@ import astroLogo from "../assets/rjk.svg";
 
               <a
                 href="/timeline"
+				  aria-label="timeline"
                 class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 transition-all duration-300 group"
               >
                 <svg
@@ -95,6 +99,7 @@ import astroLogo from "../assets/rjk.svg";
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
+				
                   stroke-linejoin="round"
                   class="lucide lucide-list"
                   ><path d="M3 12h.01"></path><path d="M3 18h.01"></path><path
@@ -104,6 +109,7 @@ import astroLogo from "../assets/rjk.svg";
               </a>
               <a
                 href="/writing"
+				  aria-label="writing"
                 class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 transition-all duration-300 group"
               >
                 <svg
@@ -115,6 +121,7 @@ import astroLogo from "../assets/rjk.svg";
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
+				
                   stroke-linejoin="round"
                   class="lucide lucide-book-open-text"
                 >
@@ -130,6 +137,7 @@ import astroLogo from "../assets/rjk.svg";
               </a>
               <a
                 href="/contact"
+				 aria-label="contact"
                 class="py-1 px-3 xl:p-3 rounded-md xl:rounded-bl-3xl rounded-br-3xl rounded-bl-md rounded-tr-3xl xl:rounded-tr-md hover:bg-black/5 transition-all duration-300 group"
               >
                 <svg
@@ -141,6 +149,7 @@ import astroLogo from "../assets/rjk.svg";
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
+				 
                   stroke-linejoin="round"
                   class="lucide lucide-contact-round"
                   ><path d="M16 2v2"></path><path d="M17.915 22a6 6 0 0 0-12 0"
@@ -183,9 +192,9 @@ import astroLogo from "../assets/rjk.svg";
           </a>
         </div>
       </div>
-      <div class="h-24"></div>
+      <div class="h-8 sm:h-12 md:h-24 transition-all"></div>
       <div class="absolute w-full inset-x-0 -bottom-10">
-        <img loading="lazy" src={astroLogo.src} alt="Astro Homepage" />
+        <img loading="lazy" src={astroLogo.src} alt="Astro Homepage" class="w-full" />
       </div>
     </footer>
   </body>
