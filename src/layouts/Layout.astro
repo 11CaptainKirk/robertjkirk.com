@@ -4,7 +4,7 @@ import astroLogo from "../assets/rjk.svg";
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100">
+<html lang="en" class="bg-gray-100 dark:bg-neutral-900">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -48,7 +48,7 @@ import astroLogo from "../assets/rjk.svg";
     >
       <div class="w-fit mx-auto xl:mx-0">
         <header
-          class="bg-white/30 backdrop-blur-md rounded-full shadow-md border border-white/20 transition-all duration-300 hover:bg-white/70"
+          class="bg-white/30 dark:bg-white/5 backdrop-blur-md rounded-full shadow-md border border-white/20 dark:border-white/5 transition-all duration-300 hover:bg-white/70 dark:hover:bg-white/10 dark:text-neutral-300"
         >
           <!-- Navigation - vertical on desktop, horizontal on mobile -->
           <nav class="flex xl:flex-col items-center gap-2 xl:h-auto px-1 py-1">
@@ -64,7 +64,7 @@ import astroLogo from "../assets/rjk.svg";
               <a
                 href="/"
 				  aria-label="home"
-                class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 xl:rounded-bl-md xl:rounded-tr-3xl rounded-tl-3xl rounded-bl-3xl transition-all duration-300 group flex items-center gap-2"
+                class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 dark:hover:bg-white/5 xl:rounded-bl-md xl:rounded-tr-3xl rounded-tl-3xl rounded-bl-3xl transition-all duration-300 group flex items-center gap-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ import astroLogo from "../assets/rjk.svg";
               <a
                 href="/timeline"
 				  aria-label="timeline"
-                class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 transition-all duration-300 group"
+                class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@ import astroLogo from "../assets/rjk.svg";
               <a
                 href="/writing"
 				  aria-label="writing"
-                class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 transition-all duration-300 group"
+                class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +138,7 @@ import astroLogo from "../assets/rjk.svg";
               <a
                 href="/contact"
 				 aria-label="contact"
-                class="py-1 px-3 xl:p-3 rounded-md xl:rounded-bl-3xl rounded-br-3xl rounded-bl-md rounded-tr-3xl xl:rounded-tr-md hover:bg-black/5 transition-all duration-300 group"
+                class="py-1 px-3 xl:p-3 rounded-md xl:rounded-bl-3xl rounded-br-3xl rounded-bl-md rounded-tr-3xl xl:rounded-tr-md hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -169,24 +169,24 @@ import astroLogo from "../assets/rjk.svg";
 
     <slot />
     <footer
-      class="relative max-w-5xl mx-auto w-full mt-8 py-4 border-t border-gray-200"
+      class="relative max-w-5xl mx-auto w-full mt-8 py-4 border-t border-gray-200 text-gray-300 dark:text-zinc-700 dark:border-zinc-700"
     >
       <div
         class="flex flex-row justify-between px-4 lg:px-0 gap-2 transition-all"
       >
-        <div class="text-sm text-gray-300">
+        <div class="text-sm ">
           Copyright &copy; {currentYear} Robert Kirk. All rights reserved.
         </div>
         <div class="flex flex-row gap-4">
           <a
             href="/legal/privacy"
-            class="text-center text-sm text-gray-300 hover:underline cursor-pointer"
+            class="text-center text-sm hover:underline cursor-pointer"
           >
             Privacy
           </a>
           <a
             href="/legal/terms"
-            class="text-center text-sm text-gray-300 hover:underline cursor-pointer"
+            class="text-center text-sm  hover:underline cursor-pointer"
           >
             Terms
           </a>
@@ -194,7 +194,7 @@ import astroLogo from "../assets/rjk.svg";
       </div>
       <div class="h-8 sm:h-12 md:h-24 transition-all"></div>
       <div class="absolute w-full inset-x-0 -bottom-10">
-        <img loading="lazy" src={astroLogo.src} alt="Astro Homepage" class="w-full" />
+        <img loading="lazy" src={astroLogo.src} alt="Astro Homepage" class="w-full invert-0 dark:invert" />
       </div>
     </footer>
   </body>
