@@ -1,7 +1,7 @@
 ---
 // src/pages/contact.astro
 
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
@@ -23,18 +23,19 @@ import Layout from "../layouts/Layout.astro";
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-contact-round"
-          ><path d="M16 2v2"></path><path d="M17.915 22a6 6 0 0 0-12 0"
-          ></path><path d="M8 2v2"></path><circle cx="12" cy="12" r="4"
-          ></circle><rect x="3" y="4" width="18" height="18" rx="2"></rect></svg
+          class="lucide lucide-scale"
+          ><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"
+          ></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"
+          ></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path
+            d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg
         >
-        <h1 class="text-4xl font-bold text-gray-900 mt-2">Contact</h1>
-        <p class="text-lg text-gray-600 mt-2">Reach out!</p>
+        <h1 class="text-4xl font-bold text-gray-900 mt-2">Legal</h1>
+        <!-- <p class="text-lg text-gray-600 mt-2">Reach out!</p> -->
       </header>
 
       <!-- Blog Posts Grid -->
       <div class="gap-6 flex-wrap flex">
-        <a target="_blank" href="https://www.linkedin.com/in/robertjkirk/">
+        <a href="/legal/privacy">
           <div
             class={`rounded-2xl p-4 px-6  text-blue-500 hover:bg-blue-500/10 transition-all border border-blue-500 w-fit`}
           >
@@ -48,18 +49,21 @@ import Layout from "../layouts/Layout.astro";
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-linkedin"
+              class="lucide lucide-globe-lock"
               ><path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              ></path><rect width="4" height="12" x="2" y="9"></rect><circle
-                cx="4"
-                cy="4"
-                r="2"></circle></svg
+                d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13"
+              ></path><path d="M2 12h8.5"></path><path
+                d="M20 6V4a2 2 0 1 0-4 0v2"></path><rect
+                width="8"
+                height="5"
+                x="14"
+                y="6"
+                rx="1"></rect></svg
             >
-            <p class="mt-2 font-medium">@robertjkirk</p>
+            <p class="mt-2 font-medium">Privacy Policy</p>
           </div>
         </a>
-        <a href="mailto:hi@robertjkirk.com">
+        <a href="/legal/terms">
           <div
             class={`rounded-2xl p-4 px-6  text-gray-500 hover:bg-gray-500/10 transition-all border border-gray-500 w-fit`}
           >
@@ -73,11 +77,13 @@ import Layout from "../layouts/Layout.astro";
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-mail"
-              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
-                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+              class="lucide lucide-receipt-text"
+              ><path
+                d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+              ></path><path d="M14 8H8"></path><path d="M16 12H8"></path><path
+                d="M13 16H8"></path></svg
             >
-            <p class="mt-2 font-medium">hi@robertjkirk.com</p>
+            <p class="mt-2 font-medium">Terms of Use</p>
           </div>
         </a>
         <!-- <a  href="mailto:hi@robertjkirk.com">

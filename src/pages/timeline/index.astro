@@ -12,50 +12,63 @@ const sortedPosts = posts.sort(
 ---
 
 <Layout>
-<div class="min-h-screen  p-4 md:p-8">
-  <div       class="bg-white rounded-3xl mx-auto max-w-3xl p-6 md:p-12 shadow-sm border border-gray-100">
-    <!-- Header with Back Link -->
-  
+  <div class="min-h-screen p-4 md:p-8 transition-all">
+    <div
+      class="bg-white rounded-3xl mx-auto max-w-3xl p-6 md:p-12 shadow-sm border border-gray-100"
+    >
+      <!-- Header with Back Link -->
 
-    <!-- Blog Header -->
-    <header class="mb-12">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list"><path d="M3 12h.01"/><path d="M3 18h.01"/><path d="M3 6h.01"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M8 6h13"/></svg>
+      <!-- Blog Header -->
+      <header class="mb-12">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-list"
+          ><path d="M3 12h.01"></path><path d="M3 18h.01"></path><path
+            d="M3 6h.01"></path><path d="M8 12h13"></path><path d="M8 18h13"
+          ></path><path d="M8 6h13"></path></svg
+        >
 
-      <h1 class="text-4xl font-bold text-gray-900 mt-2">Timeline</h1>
-      <p class="text-lg text-gray-600 mt-2">
-        My experiences and projects
-      </p>
-    </header>
+        <h1 class="text-4xl font-bold text-gray-900 mt-2">Timeline</h1>
+        <p class="text-lg text-gray-600 mt-2">My experiences and projects</p>
+      </header>
 
-    <!-- Blog Posts Grid -->
-    <div class="space-y-6">
-      {
-        sortedPosts.map((post, index) => (
-          // <article class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all">
-          //   <a href={`/writing/${post.slug}`} class="block">
-          //     <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-          //       <span>{post.data.formattedDate}</span>
-          //       <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
-          //       <span>{post.data.readingTime} min read</span>
-          //     </div>
-          //     <h2 class="text-2xl font-medium text-gray-900 mb-3 hover:text-blue-600 transition-colors">
-          //       {post.data.title}
-          //     </h2>
-          //     <p class="text-gray-600">
-          //       {post.data.description}
-          //     </p>
-          //   </a>
-          // </article>
-          <TimelineEntry
-            title={post.data.title}
-            description={post.data.description}
-            tags={post.data.tags}
-            href={`/timeline/${post.slug}`}
-            featuredText={post.data.featuredMessage}
-          />
-        ))
-      }
+      <!-- Blog Posts Grid -->
+      <div class="space-y-6">
+        {
+          sortedPosts.map((post, index) => (
+            // <article class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+            //   <a href={`/writing/${post.slug}`} class="block">
+            //     <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            //       <span>{post.data.formattedDate}</span>
+            //       <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+            //       <span>{post.data.readingTime} min read</span>
+            //     </div>
+            //     <h2 class="text-2xl font-medium text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+            //       {post.data.title}
+            //     </h2>
+            //     <p class="text-gray-600">
+            //       {post.data.description}
+            //     </p>
+            //   </a>
+            // </article>
+            <TimelineEntry
+              title={post.data.title}
+              description={post.data.description}
+              tags={post.data.tags}
+              href={`/timeline/${post.slug}`}
+              featuredText={post.data.featuredMessage}
+            />
+          ))
+        }
+      </div>
     </div>
   </div>
-</div>
 </Layout>

@@ -9,26 +9,37 @@ interface Props {
 
 const {
   title = document.title,
-  text = '',
+  text = "",
   url = "",
-  class: className = '',
+  class: className = "",
 } = Astro.props;
 ---
 
 <button
   id="share-button"
-  class:list={[
-    " text-black hover:text-blue-500  transition-colors",
-    className
-  ]}
+  class:list={[" text-black hover:text-blue-500  transition-colors", className]}
   aria-label="Share this article"
 >
-   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="lucide lucide-share"
+    ><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline
+      points="16 6 12 2 8 6"></polyline><line x1="12" x2="12" y1="2" y2="15"
+    ></line></svg
+  >
 </button>
 
 <script define:vars={{ title, text, url }}>
-  const shareButton = document.getElementById('share-button');
-  
+  const shareButton = document.getElementById("share-button");
+
   async function sharePage() {
     // Check if Web Share API is supported
     if (navigator.share) {
@@ -36,11 +47,11 @@ const {
         await navigator.share({
           title,
           text,
-          url
+          url,
         });
       } catch (err) {
-        if (err.name !== 'AbortError') {
-          console.error('Error sharing:', err);
+        if (err.name !== "AbortError") {
+          console.error("Error sharing:", err);
           fallbackShare();
         }
       }
@@ -51,21 +62,21 @@ const {
 
   function fallbackShare() {
     // Create a temporary input to copy the URL
-    const tempInput = document.createElement('input');
+    const tempInput = document.createElement("input");
     tempInput.value = url;
     document.body.appendChild(tempInput);
     tempInput.select();
-    
+
     try {
-      document.execCommand('copy');
-      alert('Link copied to clipboard!');
+      document.execCommand("copy");
+      alert("Link copied to clipboard!");
     } catch (err) {
-      console.error('Failed to copy:', err);
-      alert('Failed to copy link. Please copy the URL manually.');
+      console.error("Failed to copy:", err);
+      alert("Failed to copy link. Please copy the URL manually.");
     }
-    
+
     document.body.removeChild(tempInput);
   }
 
-  shareButton?.addEventListener('click', sharePage);
+  shareButton?.addEventListener("click", sharePage);
 </script>

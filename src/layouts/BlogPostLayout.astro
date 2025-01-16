@@ -8,12 +8,10 @@ import XShare from "../components/XShare.astro";
 ---
 
 <Layout>
-<div
-  class="min-h-screen  p-4 xl:p-8"
->
-  <div class="max-w-3xl mx-auto">
-    <!-- Header with Back Link -->
-    <!-- <nav class="mb-12">
+  <div class="min-h-screen p-4 xl:p-8 transition-all">
+    <div class="max-w-3xl mx-auto">
+      <!-- Header with Back Link -->
+      <!-- <nav class="mb-12">
       <a 
         href="/writing" 
         class="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center gap-2"
@@ -22,21 +20,22 @@ import XShare from "../components/XShare.astro";
       </a>
     </nav> -->
 
-    <!-- Article -->
-    <article
-      class="bg-white rounded-3xl p-6 md:p-12 shadow-sm border border-gray-100"
-    >
-         <div class="sticky top-4 float-right cursor-pointer z-50 gap-5 flex sm:flex-row flex-col bg-white/10 backdrop-blur-lg sm:px-4 sm:py-1 px-2 py-2 rounded-3xl">
-             <XShare/>
-           <ShareButton 
-  title={postData.title}
-  text={postData.description}
-  url={postData.slug}
-/>
-
- </div>
-      <header class="mb-8 relative mr-12">
-    <!-- <a
+      <!-- Article -->
+      <article
+        class="bg-white rounded-3xl p-6 md:p-12 transition-all shadow-sm border border-gray-100"
+      >
+        <div
+          class="sticky top-4 float-right cursor-pointer z-50 gap-5 flex sm:flex-row flex-col bg-white/10 backdrop-blur-lg sm:px-4 sm:py-1 px-2 py-2 rounded-3xl"
+        >
+          <XShare />
+          <ShareButton
+            title={postData.title}
+            text={postData.description}
+            url={postData.slug}
+          />
+        </div>
+        <header class="mb-8 relative mr-12">
+          <!-- <a
       href=`https://twitter.com/share?url=${encodeURIComponent(Astro.url)}&text=Check%20out%20this%20article!`
       target="_blank"
       rel="noopener noreferrer"
@@ -46,46 +45,44 @@ import XShare from "../components/XShare.astro";
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>
       </a> -->
-      <!-- <ShareButton 
+          <!-- <ShareButton 
   title="𝕏"
   text="Check out this great article!"
   url="https://example.com/article"
 /> -->
 
-    
-        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-          <time datetime={postData.date}>{postData.formattedDate}</time>
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"
-          ></span>
-          <span>{postData.readingTime} min read </span>
-        </div>
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          {postData.title}
-        </h1>
-        <p class="text-xl text-gray-600">
-          {postData.description}
-          
-        </p>
-        <div class="flex flex-wrap mt-2">
-        {
-          postData.tags.map((tag: string, index: number) => {
-            return (
-            <span class=" bg-gray-100 text-gray-500 text-sm px-2 py-1 rounded-full mt-4 mr-2">
-              {tag}
-            </span>
-            )
-          })
-        }
-        </div>
+          <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            <time datetime={postData.date}>{postData.formattedDate}</time>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"
+            ></span>
+            <span>{postData.readingTime} min read </span>
+          </div>
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">
+            {postData.title}
+          </h1>
+          <p class="text-xl text-gray-600">
+            {postData.description}
+          </p>
+          <div class="flex flex-wrap mt-2">
+            {
+              postData.tags.map((tag: string, index: number) => {
+                return (
+                  <span class=" bg-gray-100 text-gray-500 text-sm px-2 py-1 rounded-full mt-4 mr-2">
+                    {tag}
+                  </span>
+                );
+              })
+            }
+          </div>
 
-        <hr class="my-8 mb-12 border-t border-gray-300" />
-      </header>
+          <hr class="my-8 mb-12 border-t border-gray-300" />
+        </header>
 
-      <!-- Article Content -->
-      <div class="prose prose-lg prose-gray max-w-none">
-        <slot />
-      </div>
-    </article>
+        <!-- Article Content -->
+        <div class="prose prose-lg prose-gray max-w-none">
+          <slot />
+        </div>
+      </article>
+    </div>
   </div>
-</div>
 </Layout>

@@ -12,72 +12,73 @@ const sortedPosts = posts.sort(
 ---
 
 <Layout>
-<div class="min-h-screen  p-4 md:p-8">
-  <div       class="bg-white rounded-3xl mx-auto max-w-3xl p-6 md:p-12 shadow-sm border border-gray-100">
-    <!-- Header with Back Link -->
-  
+  <div class="min-h-screen p-4 md:p-8 transition-all">
+    <div
+      class="bg-white rounded-3xl mx-auto max-w-3xl p-6 md:p-12 shadow-sm border border-gray-100"
+    >
+      <!-- Header with Back Link -->
 
-    <!-- Blog Header -->
-    <header class="mb-12">
-       <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-book-open-text"
-                >
-                  <path d="M12 7v14"></path>
-                  <path d="M16 12h2"></path>
-                  <path d="M16 8h2"></path>
-                  <path
-                    d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-                  ></path>
-                  <path d="M6 12h2"></path>
-                  <path d="M6 8h2"></path>
-                </svg>
-      <h1 class="text-4xl font-bold text-gray-900 mt-2">Writing</h1>
-      <p class="text-lg text-gray-600 mt-2">
-        Thoughts on design and development
-      </p>
-    </header>
+      <!-- Blog Header -->
+      <header class="mb-12">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-book-open-text"
+        >
+          <path d="M12 7v14"></path>
+          <path d="M16 12h2"></path>
+          <path d="M16 8h2"></path>
+          <path
+            d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+          ></path>
+          <path d="M6 12h2"></path>
+          <path d="M6 8h2"></path>
+        </svg>
+        <h1 class="text-4xl font-bold text-gray-900 mt-2">Writing</h1>
+        <p class="text-lg text-gray-600 mt-2">
+          Thoughts on design and development
+        </p>
+      </header>
 
-    <!-- Blog Posts Grid -->
-    <div class="space-y-6">
-      {
-        sortedPosts.map((post, index) => (
-          // <article class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all">
-          //   <a href={`/writing/${post.slug}`} class="block">
-          //     <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-          //       <span>{post.data.formattedDate}</span>
-          //       <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
-          //       <span>{post.data.readingTime} min read</span>
-          //     </div>
-          //     <h2 class="text-2xl font-medium text-gray-900 mb-3 hover:text-blue-600 transition-colors">
-          //       {post.data.title}
-          //     </h2>
-          //     <p class="text-gray-600">
-          //       {post.data.description}
-          //     </p>
-          //   </a>
-          // </article>
-          <TimelineEntry
-            title={post.data.title}
-            description={post.data.description}
-            tags={[
-              post.data.formattedDate,
-              post.data.readingTime + " min read",
-            ]}
-            href={`/writing/${post.slug}`}
-            featuredText={index === 0 ? "New" : ""}
-          />
-        ))
-      }
+      <!-- Blog Posts Grid -->
+      <div class="space-y-6">
+        {
+          sortedPosts.map((post, index) => (
+            // <article class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+            //   <a href={`/writing/${post.slug}`} class="block">
+            //     <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            //       <span>{post.data.formattedDate}</span>
+            //       <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+            //       <span>{post.data.readingTime} min read</span>
+            //     </div>
+            //     <h2 class="text-2xl font-medium text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+            //       {post.data.title}
+            //     </h2>
+            //     <p class="text-gray-600">
+            //       {post.data.description}
+            //     </p>
+            //   </a>
+            // </article>
+            <TimelineEntry
+              title={post.data.title}
+              description={post.data.description}
+              tags={[
+                post.data.formattedDate,
+                post.data.readingTime + " min read",
+              ]}
+              href={`/writing/${post.slug}`}
+              featuredText={index === 0 ? "New" : ""}
+            />
+          ))
+        }
+      </div>
     </div>
   </div>
-</div>
 </Layout>
