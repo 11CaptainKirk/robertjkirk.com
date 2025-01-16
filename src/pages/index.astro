@@ -17,6 +17,11 @@ const sortedPosts = posts.sort(
 // Get the latest post and the rest
 const [latestPost, ...previousPosts] = sortedPosts;
 
+const timelineEntries = await getCollection("timeline");
+const sortedTimelineEntries = timelineEntries.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+
 // Get current year for footer
 const currentYear = new Date().getFullYear();
 ---
@@ -108,7 +113,22 @@ const currentYear = new Date().getFullYear();
           </div>
 
           <div class="space-y-3">
-            <TimelineEntry
+			{
+			  sortedTimelineEntries
+				.slice(0, 3)
+				.map((entry) => (
+				  <TimelineEntry
+			
+					title={entry.data.title}
+					tags={entry.data.tags}
+					description={entry.data.description}
+					href={`/timeline/${entry.slug}`}
+					featuredText={entry.data.featuredMessage}
+				
+				  />
+				))
+			}
+            <!-- <TimelineEntry
               title="Vehicle Firmware System Integration Engineer"
               tags={["Tesla", "Internship", "Summer 2025"]}
             />
@@ -122,7 +142,7 @@ const currentYear = new Date().getFullYear();
               title="Software Engineer"
               tags={["Keysight", "Internship", "Summer 2023"]}
               description="Developing software for Keysight products"
-            />
+            /> -->
             <a
               href="/timeline"
               title="View Full Timeline"
@@ -279,8 +299,8 @@ const currentYear = new Date().getFullYear();
                 ))
             }
             <a
-              href="/timeline"
-              title="View Full Timeline"
+              href="/writing"
+              title="View All Posts"
               class="text-center hover:scale-110 transition-all w-full flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600"
             >
               <svg

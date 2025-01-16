@@ -9,6 +9,7 @@ const blog = defineCollection({
     description: z.string(),
     readingTime: z.number(),
     tags: z.array(z.string()),
+    featuredMessage: z.string().optional(),
   }),
 });
 
@@ -18,9 +19,10 @@ const timeline = defineCollection({
     title: z.string(),
     date: z.string(),
     formattedDate: z.string(),
-    description: z.string(),
+    description: z.string().optional(), // optional
     readingTime: z.number(),
     tags: z.array(z.string()),
+    featuredMessage: z.string().optional(), // optional
   }),
 });
 

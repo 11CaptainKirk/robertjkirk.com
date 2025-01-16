@@ -3,6 +3,8 @@ import Layout from "./Layout.astro";
 
 // src/layouts/BlogPostLayout.astro
 const { postData } = Astro.props;
+import ShareButton from "../components/ShareButton.astro";
+import XShare from "../components/XShare.astro";
 ---
 
 <Layout>
@@ -24,26 +26,57 @@ const { postData } = Astro.props;
     <article
       class="bg-white rounded-3xl p-6 md:p-12 shadow-sm border border-gray-100"
     >
-      <header class="mb-8">
+         <div class="sticky top-4 float-right cursor-pointer z-50 gap-5 flex flex-row bg-white/10 backdrop-blur-lg px-4 py-1 rounded-3xl">
+             <XShare/>
+           <ShareButton 
+  title={postData.title}
+  text={postData.description}
+  url={encodeURIComponent(Astro.url)}
+/>
+
+ </div>
+      <header class="mb-8 relative">
+    <!-- <a
+      href=`https://twitter.com/share?url=${encodeURIComponent(Astro.url)}&text=Check%20out%20this%20article!`
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Share this article on Twitter"
+      class="sticky top-4 float-right bg-gray-100  text-sm px-3 py-3 rounded-full border border-blue-500 text-blue-500 transition-colors"
+      aria-label="Share this article"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>
+      </a> -->
+      <!-- <ShareButton 
+  title="𝕏"
+  text="Check out this great article!"
+  url="https://example.com/article"
+/> -->
+
+    
         <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
           <time datetime={postData.date}>{postData.formattedDate}</time>
           <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"
           ></span>
-          <span>{postData.readingTime} min read</span>
+          <span>{postData.readingTime} min read </span>
         </div>
         <h1 class="text-4xl font-bold text-gray-900 mb-4">
           {postData.title}
         </h1>
         <p class="text-xl text-gray-600">
           {postData.description}
+          
         </p>
+        <div class="flex flex-wrap mt-2">
         {
-          postData.tags.map((tag) => {
-            <span class="inline-block bg-gray-100 text-gray-500 text-sm px-2 py-1 rounded-full mt-4 mr-2">
+          postData.tags.map((tag: string, index: number) => {
+            return (
+            <span class=" bg-gray-100 text-gray-500 text-sm px-2 py-1 rounded-full mt-4 mr-2">
               {tag}
-            </span>;
+            </span>
+            )
           })
         }
+        </div>
 
         <hr class="my-8 mb-12 border-t border-gray-300" />
       </header>
