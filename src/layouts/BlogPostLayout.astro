@@ -26,16 +26,16 @@ import XShare from "../components/XShare.astro";
     <article
       class="bg-white rounded-3xl p-6 md:p-12 shadow-sm border border-gray-100"
     >
-         <div class="sticky top-4 float-right cursor-pointer z-50 gap-5 flex flex-row bg-white/10 backdrop-blur-lg px-4 py-1 rounded-3xl">
+         <div class="sticky top-4 float-right cursor-pointer z-50 gap-5 flex sm:flex-row flex-col bg-white/10 backdrop-blur-lg sm:px-4 sm:py-1 px-2 py-2 rounded-3xl">
              <XShare/>
            <ShareButton 
   title={postData.title}
   text={postData.description}
-  url={encodeURIComponent(Astro.url)}
+  url={postData.slug}
 />
 
  </div>
-      <header class="mb-8 relative">
+      <header class="mb-8 relative mr-12">
     <!-- <a
       href=`https://twitter.com/share?url=${encodeURIComponent(Astro.url)}&text=Check%20out%20this%20article!`
       target="_blank"
