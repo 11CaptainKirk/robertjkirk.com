@@ -1,6 +1,6 @@
 ---
 title: "Software Engineer"
-date: "2025-02-15"
+date: "2025-02-13"
 formattedDate: "January 15, 2025"
 description: "Developed end-to-end testing infrastructure for Keysight network packet brokers."
 readingTime: 1

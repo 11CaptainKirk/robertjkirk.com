@@ -1,6 +1,6 @@
 ---
 title: "BIOS Firmware Engineer"
-date: "2025-02-15"
+date: "2025-02-14"
 formattedDate: "January 15, 2025"
 description: "Developing AGESA BIOS firmware for next-gen AMD processors"
 readingTime: 1
