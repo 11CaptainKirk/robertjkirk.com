@@ -1,10 +1,12 @@
 ---
 const currentYear = new Date().getFullYear();
 import astroLogo from "../assets/rjk.svg";
+
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-100 dark:bg-neutral-900">
+<html lang="en" class="bg-gray-100 dark:bg-neutral-900" transition:name="root" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -18,11 +20,13 @@ import astroLogo from "../assets/rjk.svg";
       data-cf-beacon='{"token": "33eee5331e1d41cd9abfa65cefddfc8a"}'
     ></script>
     <!-- End Cloudflare Web Analytics -->
+	 <ClientRouter />
   </head>
-  <body class="">
+  <body class="" >
     <a
       href="/"
 	  aria-label="rk logo"
+	  transition:animate="none"
       class="fixed z-50 left-4 top-4 xl:left-8 xl:top-8 scale-75 sm:scale-100 transition-all antialiased hover:scale-[1.02]"
     >
       <svg
@@ -52,6 +56,7 @@ import astroLogo from "../assets/rjk.svg";
     </a>
     <div
       class="xl:left-8 xl:top-24 xl:-translate-y-0 fixed top-4 left-1/2 -translate-x-1/2 xl:-translate-x-0 mx-auto w-fit z-50 transition-all duration-300"
+	  transition:animate="none"
     >
       <div class="w-fit mx-auto xl:mx-0">
         <header
@@ -172,7 +177,7 @@ import astroLogo from "../assets/rjk.svg";
         </header>
       </div>
     </div>
-    <div class="xl:h-0 h-16 transition-all"></div>
+    <div class="xl:h-0 h-16 transition-all" transition:animate="slide"></div>
 
     <slot />
     <footer
