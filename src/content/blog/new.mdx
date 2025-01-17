@@ -7,7 +7,8 @@ readingTime: 1
 tags: ["hello"]
 ---
 
-import TimelineEntry from "../../components/TimelineEntry.astro";
+import { Image } from "astro:assets";
+import rk from "../../assets/robertkirk.png";
 
 This is a test post.
 
@@ -35,16 +36,4 @@ console.log("hello world");
 </div>
 ```
 
-<img
-  src="/src/assets/robertkirk.png"
-  alt="Cool image"
-  title="Optional title"
-  class="rounded-lg max-w-36 w-full"
-/>
-
-<TimelineEntry
-  title="New post"
-  description="This is a test post to verify our content collection is working."
-  tags={["hello"]}
-  class="no-styles"
-/>
+<Image src={rk} alt="Robert Kirk" class="rounded-lg max-w-36 w-full" />
