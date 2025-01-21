@@ -29,35 +29,6 @@ const currentYear = new Date().getFullYear();
 <Layout>
   <div class="min-h-screen -pt-96 p-4 md:p-8 flex flex-col">
     <div class="max-w-5xl mx-auto space-y-8 flex-grow">
-      <!-- Header Section -->
-      <!-- <header class="text-center space-y-3 mb-4">
-      <h1 class="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-        Robert Kirk
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-600 font-light">
-        Building the future of digital experiences
-      </p>
-    </header> -->
-
-      <!-- About Section -->
-      <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-      <div class="md:col-span-2 bg-gradient-to-br from-gray-600 to-gray-700 rounded-3xl p-8 text-white">
-        <h2 class="text-2xl font-medium mb-4">About</h2>
-        <p class="text-gray-200 leading-relaxed">
-          Product designer and developer with 8+ years of experience crafting digital solutions. 
-          Focused on creating intuitive interfaces that bridge the gap between human needs and technological possibilities.
-        </p>
-        <div class="mt-6 flex gap-4">
-          <span class="bg-gray-200/10 rounded-full px-4 py-1 text-sm text-gray-300">Product Development</span>
-          <span class="bg-gray-800/50 rounded-full px-4 py-1 text-sm text-gray-300">Embedded Systems</span>
-          <span class="bg-gray-800/50 rounded-full px-4 py-1 text-sm text-gray-300">Contemporary UX</span>
-        </div>
-      </div>
-      <ContactCard
-    email="hello@robertkirk.com"
-    linkedin="robertjkirk"
-  />
-  </div> -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div class="md:col-span-3 bg-white dark:bg-black rounded-3xl text-white">
           <div class="flex flex-col md:flex-row md:gap-2">
@@ -68,14 +39,14 @@ const currentYear = new Date().getFullYear();
                 <h2 class="text-2xl text-blue-500 font-medium mb-4">
                   Hi, I'm Rob
                 </h2>
-                <p class="text-gray-800/50 dark:text-neutral-200/50 leading-relaxed">
+                <p class="text-blue-600/50 dark:text-blue-300/50 leading-relaxed">
                   I’m an electrical and computer engineering student with an
                   entrepreneurial spirit at the University of Texas at Austin.
                   Reach out if you’d like to work together.
                 </p>
                 <a
                   href="/writing/about"
-                  class="text-blue-500 text-sm hover:text-blue-600 border hover:border-blue-500/50 border-blue-200/50 dark:border-blue-500/50 dark:bg-blue-600/20 w-fit p-1 px-3 rounded-xl transition-colors flex-row flex mt-4 gap-1"
+                  class="text-blue-500 text-sm hover:text-blue-600 border hover:border-blue-500/50 border-blue-200/50 dark:border-blue-500/50 dark:bg-blue-600/20 w-fit p-1 px-3 rounded-xl flex-row flex mt-4 gap-1 hover:gap-2 hover:mr-[-4px] transition-all"
                 >
                   Learn More
                   <svg
@@ -134,7 +105,7 @@ const currentYear = new Date().getFullYear();
             <a
               href="/timeline"
 			  title="View Full Timeline"
-              class="text-sm text-gray-600 hover:text-blue-600 transition-colors flex-row flex justify-center items-center gap-1"
+              class="text-sm text-neutral-600 hover:text-blue-600 flex-row flex justify-center items-center gap-1 hover:gap-2 hover:mr-[-4px] transition-all"
             >
               Full Timeline
               <svg
@@ -169,26 +140,11 @@ const currentYear = new Date().getFullYear();
                   />
                 ))
             }
-            <!-- <TimelineEntry
-              title="Vehicle Firmware System Integration Engineer"
-              tags={["Tesla", "Internship", "Summer 2025"]}
-            />
-            <TimelineEntry
-              title="BIOS Firmware Engineer"
-              tags={["AMD", "Internship", "Spring 2025"]}
-              description="Developing AGESA BIOS firmware for next-gen AMD processors"
-              featuredText="Current Position"
-            />
-            <TimelineEntry
-              title="Software Engineer"
-              tags={["Keysight", "Internship", "Summer 2023"]}
-              description="Developing software for Keysight products"
-            /> -->
             <a
               href="/timeline"
               title="View Full Timeline"
 			  aria-label="View Full Timeline"
-              class="text-center w-full flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600 transition-colors"
+              class="text-center w-full hover:scale-125 transition-all flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600 "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -207,21 +163,11 @@ const currentYear = new Date().getFullYear();
                   r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg
               >
             </a>
-            <!-- <div class="group bg-white rounded-xl p-4 cursor-pointer hover:bg-gray-50 transition-all border border-gray-200">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-			</div> -->
           </div>
 
           <p class="text-gray-300 dark:text-neutral-600 text-xs mt-2">
             Click on each entry to learn more about my experience.
           </p>
-
-          <!-- <button class="mt-6 text-sm text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1">
-          View full timeline
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button> -->
         </div>
 
         <!-- Writing Section -->
@@ -255,7 +201,7 @@ const currentYear = new Date().getFullYear();
               href="/writing"
 			  title="View All Posts"
 			  aria-label="View All Posts"
-              class="text-sm text-gray-600 hover:text-blue-600 transition-colors flex-row flex justify-center items-center gap-1"
+              class="text-sm text-neutral-600 hover:text-blue-600  flex-row flex justify-center items-center gap-1 hover:gap-2 hover:mr-[-4px] transition-all"
             >
               All Posts
               <svg
@@ -335,11 +281,6 @@ const currentYear = new Date().getFullYear();
                   ]}
                   description={latestPost.data.description}
                   href={`/writing/${latestPost.slug}`}
-                  metadata={[
-                    latestPost.data.formattedDate,
-                    `${latestPost.data.readingTime} min read`,
-                  ]}
-                  className="bg-gray-50 rounded-2xl p-6 mb-6 border border-gray-100"
                 />
               )
             }
@@ -349,7 +290,6 @@ const currentYear = new Date().getFullYear();
                 .slice(0, 3)
                 .map((post) => (
                   <TimelineEntry
-                    key={post.slug}
                     title={post.data.title}
                     tags={[
                       post.data.formattedDate,
@@ -357,11 +297,7 @@ const currentYear = new Date().getFullYear();
                     ]}
                     description=""
                     href={`/writing/${post.slug}`}
-                    metadata={[
-                      post.data.formattedDate,
-                      `${post.data.readingTime} min read`,
-                    ]}
-                    className="group bg-white rounded-xl p-4 cursor-pointer hover:bg-gray-50 transition-all border border-gray-100"
+            
                   />
                 ))
             }
@@ -369,7 +305,7 @@ const currentYear = new Date().getFullYear();
               href="/writing"
               title="View All Posts"
 			  aria-label="View All Posts"
-              class="text-center hover:scale-110 transition-all w-full flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600"
+              class="text-center hover:scale-125 transition-all w-full flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

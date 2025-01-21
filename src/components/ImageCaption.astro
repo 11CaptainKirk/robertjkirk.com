@@ -1,0 +1,23 @@
+---
+interface Props {
+  src: any;
+  alt: string;
+  sourceText: string;
+  sourceLink: string;
+  className: string;
+}
+
+const { src, alt, sourceText, sourceLink, className} = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<div class=`justify-center items-center my-12 relative ${className}` >
+  <Image src={src} alt={alt} class="rounded-xl  w-full my-0" />
+  {sourceText && <a href={sourceLink} target="_blank" class="no-underline cursor-pointer text-center text-xs text-neutral-900 dark:text-neutral-100 absolute  top-0 left-0  bg-neutral-100/50 dark:bg-neutral-900/50 px-2 py-1 m-2 flex flex-row items-center gap-2 rounded-lg opacity-50 hover:opacity-100 transition-all">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+    {sourceText}
+ </a>}
+  <div class="text-center text-xs text-neutral-500 ">
+    <slot />
+  </div>
+</div>
