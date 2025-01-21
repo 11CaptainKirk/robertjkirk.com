@@ -96,7 +96,7 @@ const imageUrl = postData.image ? new URL(postData.image, siteUrl).toString() : 
           </p>
           <div class="flex flex-wrap mt-2">
             {
-              postData.tags.map((tag: string, index: number) => {
+              postData.tags && postData.tags.map((tag: string, index: number) => {
                 return (
                   <span class=" bg-gray-100 text-gray-500 dark:text-neutral-500 dark:bg-neutral-500/30 text-sm px-2 py-1 rounded-full mt-4 mr-2">
                     {tag}
@@ -110,7 +110,7 @@ const imageUrl = postData.image ? new URL(postData.image, siteUrl).toString() : 
         </header>
 
         <!-- Article Content -->
-        <div class="prose prose-gray max-w-none dark:text-neutral-400 dark:prose-invert">
+        <div class="prose prose-gray max-w-none dark:text-neutral-300 dark:prose-invert">
           <slot />
         </div>
       </article>

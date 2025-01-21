@@ -8,7 +8,7 @@ const blog = defineCollection({
     formattedDate: z.string(),
     description: z.string(),
     readingTime: z.number(),
-    tags: z.array(z.string()),
+    tags: z.array(z.string()).optional(),
     featuredMessage: z.string().optional(),
   }),
 });
@@ -21,7 +21,7 @@ const timeline = defineCollection({
     formattedDate: z.string(),
     description: z.string().optional(), // optional
     readingTime: z.number(),
-    tags: z.array(z.string()),
+    tags: z.array(z.string()).optional(), // optional
     featuredMessage: z.string().optional(), // optional
   }),
 });
@@ -34,7 +34,7 @@ const legal = defineCollection({
     formattedDate: z.string(),
     description: z.string().optional(), // optional
     readingTime: z.number(),
-    tags: z.array(z.string()),
+    tags: z.array(z.string()).optional(), // optional
     featuredMessage: z.string().optional(), // optional
   }),
 });
