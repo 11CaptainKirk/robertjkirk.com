@@ -1,0 +1,81 @@
+---
+title: "Building This Website"
+date: "2025-01-15"
+formattedDate: "January 15, 2025"
+description: "Insights into the design and development of this website."
+readingTime: 5
+tags: ["web design", "mdx", "astro", "react"]
+---
+
+# What is this website?
+
+This website is a personal blog and portfolio. It is a place for me to share my writing, projects, and experience. It was built in January 2025.
+
+---
+
+# Design
+
+In designing this website, I subscribed to the following principles:
+
+- **Utility-First**: The site should make it easy to find and read content. That's what it's for, so that's what it should be designed to do. It's easy to fall into the trap of adding fancy features and complexity, only for it to hinder the user experience. Paul Graham writes about this in his essay ["Design and Research"](https://paulgraham.com/desres.html).
+- **Timeless**: The site should be designed to last. I don't want to have to redo the design in a few years. This means avoiding trends and fads, and focusing on simplicity and elegance.
+- **Responsive**: The site should work well on all devices. This is a no-brainer in 2025, but it's worth mentioning. I'm also including dark mode support under this principle, as nowadays to many people it's a must-have. A dark mode toggle is conspicuously absent from this site, and that's because I think it's generally a gimmick. If a user wants dark mode, they should set it in their browser or OS settings. Eliminating the toggle eliminates a bunch of JS, potentially the need for cookies, and other headaches, so I think it's a net win.
+
+I used **Figma** to create a rough concept for the site. Admittedly, I kept this design very rough, as I find it's generally faster to iterate directly with tailwind and html.
+
+---
+
+# Building the site
+
+In building the site, my main priority was simplicity of maintenance. I wanted to be able to add new content easily, without having to worry about the underlying structure of the site.
+My goal was to create an elegant and simple website which would make releasing content seamless. At the same time, it was important that the website was extensible.
+
+### Why not use an existing platform?
+
+Traditional blogging platforms do not afford the level of control that I wanted: simple today, with the option for complexity later.
+
+### Selecting a framework
+
+This website was built using [Astro](https://astro.build/).
+Astro is a web development framework for content-driven websites. An astro site can be as simple as just HTML and CSS, or as complex as a full-blown React application. Critically, it can also be a mix of both.
+
+I previously considered NextJS or Remix, but have not been happy with how frequently those meta-frameworks change. They are also likely overkill for a website as simple as this. Astro represented a simpler, more stable choice.
+
+### Astro
+
+Astro has numerous benefits, including:
+
+- **Performance**: Astro sites are just HTML and CSS by default, so nothing special needs to be done to achieve performance.
+- **Developer Experience**: It may not be perfect, but it's not NextJS.
+- **Native Markdown Support**: Astro has built-in support for markdown files, which makes it easy to write content.
+- **MDX**: Astro supports MDX, which allows for the use of JSX in markdown files. This is an example of a feature which may be nice to have in the future.
+
+### Other technologies
+
+This site also uses a few other open source tools and libraries:
+
+- **[TailwindCSS](https://tailwindcss.com/)**: Makes styling the site easy and consistent.
+- **[MDX](https://mdxjs.com/)**: Used for writing blog posts.
+- **[Lucide Icons](https://lucide.dev/)**: Consistent iconography.
+- **[React](https://react.dev/)**: Used sparingly right now, but it's nice to have the option.
+
+### Codebase
+
+The codebase for this site is available on [GitHub](https://github.com/11CaptainKirk/robertjkirk.com).
+
+### Analytics
+
+Right now, the site uses [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/). It's free, and it's good enough for my needs. I don't need to know much about my users, just that they're there. This solution requires no cookies and doesn't track individual users.
+
+### Deployment
+
+The site is deployed on Github Pages. It's free, and performs well enough for my needs. The deployment is automatically handled by a Github Action on push to the main branch.
+
+---
+
+# Future work
+
+There are a few features I would like to add to the site in the future:
+
+- **Better UX**: I want to make it easier to find content on this site. This means better organization, filter/sort, and search functionality.
+- **Projects vs Professional Experience**: I'd like to improve the separation between projects and professional experience. I'm not exactly sure how to do this, and I like the simplicity of a unified timeline, but sometimes it's important to filter for just one or the other. Perhaps again this could be a filter/sort feature.

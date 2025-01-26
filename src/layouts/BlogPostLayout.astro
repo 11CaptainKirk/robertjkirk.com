@@ -6,13 +6,15 @@ const { postData } = Astro.props;
 import ShareButton from "../components/ShareButton.astro";
 import XShare from "../components/XShare.astro";
 
-const siteUrl = postData.siteUrl || Astro.site || 'https://yoursite.com';
+const siteUrl = postData.siteUrl || Astro.site || "https://yoursite.com";
 const canonicalURL = new URL(postData.slug, siteUrl).toString();
-const imageUrl = postData.image ? new URL(postData.image, siteUrl).toString() : '';
+const imageUrl = postData.image
+  ? new URL(postData.image, siteUrl).toString()
+  : "";
 ---
 
 <Layout>
-    <Fragment slot="head">
+  <Fragment slot="head">
     <!-- Basic Meta Tags -->
     <title>{postData.title}</title>
     <meta name="description" content={postData.description} />
@@ -25,16 +27,23 @@ const imageUrl = postData.image ? new URL(postData.image, siteUrl).toString() : 
     <meta property="og:description" content={postData.description} />
     {imageUrl && <meta property="og:image" content={imageUrl} />}
     <meta property="og:site_name" content="Your Site Name" />
-    {postData.author && <meta property="article:author" content={postData.author} />}
+    {
+      postData.author && (
+        <meta property="article:author" content={postData.author} />
+      )
+    }
     <meta property="article:published_time" content={postData.date} />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content={imageUrl ? "summary_large_image" : "summary"} />
+    <meta
+      name="twitter:card"
+      content={imageUrl ? "summary_large_image" : "summary"}
+    />
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={postData.title} />
     <meta name="twitter:description" content={postData.description} />
     {imageUrl && <meta name="twitter:image" content={imageUrl} />}
-    
+
     <!-- Optional: If you have a Twitter handle -->
     <!-- <meta name="twitter:site" content="@yourusername" /> -->
     <!-- <meta name="twitter:creator" content="@yourusername" /> -->
@@ -82,13 +91,17 @@ const imageUrl = postData.image ? new URL(postData.image, siteUrl).toString() : 
   url="https://example.com/article"
 /> -->
 
-          <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-neutral-500 mb-3">
+          <div
+            class="flex items-center gap-2 text-sm text-gray-500 dark:text-neutral-500 mb-3"
+          >
             <time datetime={postData.date}>{postData.formattedDate}</time>
             <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-500"
             ></span>
             <span>{postData.readingTime} min read </span>
           </div>
-          <h1 class="text-4xl font-bold text-gray-900 dark:text-neutral-300 mb-4">
+          <h1
+            class="text-4xl font-bold text-gray-900 dark:text-neutral-300 mb-4"
+          >
             {postData.title}
           </h1>
           <p class="text-xl text-gray-600 dark:text-neutral-400">
@@ -96,21 +109,26 @@ const imageUrl = postData.image ? new URL(postData.image, siteUrl).toString() : 
           </p>
           <div class="flex flex-wrap mt-2">
             {
-              postData.tags && postData.tags.map((tag: string, index: number) => {
-                return (
-                  <span class=" bg-gray-100 text-gray-500 dark:text-neutral-500 dark:bg-neutral-500/30 text-sm px-2 py-1 rounded-full mt-4 mr-2">
-                    {tag}
-                  </span>
-                );
-              })
+              postData.tags &&
+                postData.tags.map((tag: string, index: number) => {
+                  return (
+                    <span class=" bg-gray-100 text-gray-500 dark:text-neutral-500 dark:bg-neutral-500/30 text-sm px-2 py-1 rounded-full mt-4 mr-2">
+                      {tag}
+                    </span>
+                  );
+                })
             }
           </div>
 
-          <hr class="my-8 mb-12 border-t border-gray-300 dark:border-neutral-700" />
+          <hr
+            class="my-8 mb-12 border-t border-gray-300 dark:border-neutral-700"
+          />
         </header>
 
         <!-- Article Content -->
-        <div class="prose prose-gray max-w-none dark:text-neutral-300 dark:prose-invert prose-a:text-blue-500 prose-a:no-underline">
+        <div
+          class="prose prose-gray max-w-none dark:text-neutral-300 dark:prose-invert prose-a:text-blue-500 prose-hr:border-gray-300 prose-hr:dark:border-neutral-700"
+        >
           <slot />
         </div>
       </article>

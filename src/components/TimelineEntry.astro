@@ -24,7 +24,9 @@ const { title, tags, featuredText, description, href } = Astro.props;
           <div class="flex items-center gap-2 mt-4">
             {tags.map((tag, index) => (
               <>
-                <span class="text-sm text-gray-500 dark:text-neutral-600">{tag}</span>
+                <span class="text-sm text-gray-500 dark:text-neutral-600">
+                  {tag}
+                </span>
                 {index < tags.length - 1 && (
                   <span class="inline-block w-1 h-1 rounded-full bg-gray-500" />
                 )}
@@ -42,13 +44,19 @@ const { title, tags, featuredText, description, href } = Astro.props;
             <h3 class="font-medium  transition-colors dark:text-neutral-200">
               {title}
             </h3>
-            <p class="text-gray-600 my-2 dark:text-neutral-500">{description}</p>
+            {description && (
+              <p class="text-gray-600 my-2 dark:text-neutral-500">
+                {description}
+              </p>
+            )}
           </div>
           {tags && tags.length > 0 && (
             <div class="flex items-center gap-2 mt-4">
               {tags.map((tag, index) => (
                 <>
-                  <span class="text-sm text-gray-500 dark:text-neutral-600">{tag}</span>
+                  <span class="text-sm text-gray-500 dark:text-neutral-600">
+                    {tag}
+                  </span>
                   {index < tags.length - 1 && (
                     <span class="inline-block w-1 h-1 rounded-full bg-gray-500" />
                   )}
