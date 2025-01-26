@@ -1,14 +1,19 @@
 ---
 title: "Contemporary Manufacturing"
-date: "2025-02-15"
-formattedDate: "January 15, 2025"
+date: "2025-01-26"
+formattedDate: "January 25, 2025"
 description: "Peering into the future of manufacturing."
 readingTime: 1
 tags: ["manufacturing", "technology", "future"]
 ---
 
 import { Image } from "astro:assets";
-import rk from "../../assets/robertkirk.png";
+import ImageCaption from "../../components/ImageCaption.astro";
+import china from "../../assets/china_factory.png";
+
+```
+This essay is in progress. The content is not final.
+```
 
 # Today
 
@@ -21,10 +26,29 @@ Right now, most manufacturing processes are still largely manual.
 For some classes of products, China is the world's factory.
 While develping [Neo](https://www.kryptonleds.com/) for my company [Krypton](/timeline/krypton), I had the opportunity to work with several Chinese manufacturers. The experience was eye-opening.
 
+<ImageCaption
+  src={china}
+  alt="Factory In China"
+  sourceText="Dalle"
+  className="max-w-sm mx-auto"
+>
+  An AI Generated image of a typical electronics factory in the Guangdong
+  Province. While the image is not real, it captures the essence of many of the
+  facilities I worked with in the area.
+</ImageCaption>
+
 ### Shenzhen Electronics Manufacturing
 
 Shenzhen and the surrounding area is a hub for electronics manufacturing. Virtually anything can be made here, from simple PCBs to complex consumer electronics.
 [Finding a manufacturer](/future), even without traveling to China, has never been easier.
+
+Many manufacturers will quote a price for virtually anything, regardless of their true ability to produce it.
+
+They do have an ace up their sleeve, though: the flexible workforce. Humans can make almost anything happen
+
+It's this flexibility that is not yet available with robots. While robots are great at repetitive tasks, they struggle with the flexibility and creativity that humans bring to the table.
+
+The product development cycle requires this iterative process. While there are some products which can be perfectly set up for automated production, the vast majority of skus are at small enough scale that the effort to automate them is not worth it.
 
 ### Industry 4.0
 
