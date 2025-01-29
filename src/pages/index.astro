@@ -30,16 +30,20 @@ const currentYear = new Date().getFullYear();
   <div class="min-h-screen -pt-96 p-4 md:p-8 flex flex-col">
     <div class="max-w-5xl mx-auto space-y-8 flex-grow">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div class="md:col-span-3 bg-white dark:bg-black rounded-3xl text-white">
+        <div
+          class="md:col-span-3 bg-white dark:bg-black rounded-3xl text-white"
+        >
           <div class="flex flex-col md:flex-row md:gap-2">
             <div
               class="bg-gradient-to-br from-blue-200/10 to-blue-400/10 dark:from-blue-600/30 dark:to-blue-800/10 rounded-2xl m-4"
             >
               <div class="flex-grow p-8">
-                <h2 class="text-2xl text-blue-500 font-medium mb-4">
+                <h2 class="text-2xl text-blue-500 font-semibold mb-4">
                   Hi, I'm Rob
                 </h2>
-                <p class="text-blue-600/50 dark:text-blue-300/50 leading-relaxed">
+                <p
+                  class="text-blue-600/50 dark:text-blue-300/50 leading-relaxed"
+                >
                   I’m an electrical and computer engineering student with an
                   entrepreneurial spirit at the University of Texas at Austin.
                   Reach out if you’d like to work together.
@@ -69,7 +73,6 @@ const currentYear = new Date().getFullYear();
             </div>
             <div class="md:w-1/3 flex items-center p-4 px-8 pt-0 md:p-0">
               <ContactCard
-		
                 email="contact@robertjkirk.com"
                 linkedin="robertjkirk"
               />
@@ -81,9 +84,13 @@ const currentYear = new Date().getFullYear();
       <!-- Main Grid Layout -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Timeline Section -->
-        <div class="bg-white dark:bg-black rounded-3xl p-8 border border-gray-100 dark:border-neutral-950">
+        <div
+          class="bg-white dark:bg-black rounded-3xl p-8 border border-gray-100 dark:border-neutral-950"
+        >
           <div class="flex justify-between items-center mb-6">
-            <div class="flex items-center justify-center gap-3 text-gray-900 dark:text-neutral-100">
+            <div
+              class="flex items-center justify-center gap-3 text-gray-900 dark:text-neutral-100"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -100,11 +107,11 @@ const currentYear = new Date().getFullYear();
                   d="M8 18h13"></path><path d="M8 6h13"></path></svg
               >
 
-              <h2 class="text-2xl font-medium ">Timeline</h2>
+              <h2 class="text-2xl font-medium">Timeline</h2>
             </div>
             <a
               href="/timeline"
-			  title="View Full Timeline"
+              title="View Full Timeline"
               class="text-sm text-neutral-600 hover:text-blue-600 flex-row flex justify-center items-center gap-1 hover:gap-2 hover:mr-[-4px] transition-all"
             >
               Full Timeline
@@ -143,8 +150,8 @@ const currentYear = new Date().getFullYear();
             <a
               href="/timeline"
               title="View Full Timeline"
-			  aria-label="View Full Timeline"
-              class="text-center w-full hover:scale-125 transition-all flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600 "
+              aria-label="View Full Timeline"
+              class="text-center w-full hover:scale-125 transition-all flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,9 +178,13 @@ const currentYear = new Date().getFullYear();
         </div>
 
         <!-- Writing Section -->
-        <div class="bg-white dark:bg-black  rounded-3xl p-8 border border-gray-100 dark:border-neutral-950">
+        <div
+          class="bg-white dark:bg-black rounded-3xl p-8 border border-gray-100 dark:border-neutral-950"
+        >
           <div class="flex justify-between items-center mb-6">
-            <div class="flex items-center justify-center gap-3 text-gray-900 dark:text-neutral-100">
+            <div
+              class="flex items-center justify-center gap-3 text-gray-900 dark:text-neutral-100"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -195,13 +206,13 @@ const currentYear = new Date().getFullYear();
                 <path d="M6 12h2"></path>
                 <path d="M6 8h2"></path>
               </svg>
-              <h2 class="text-2xl font-medium ">Writing</h2>
+              <h2 class="text-2xl font-medium">Writing</h2>
             </div>
             <a
               href="/writing"
-			  title="View All Posts"
-			  aria-label="View All Posts"
-              class="text-sm text-neutral-600 hover:text-blue-600  flex-row flex justify-center items-center gap-1 hover:gap-2 hover:mr-[-4px] transition-all"
+              title="View All Posts"
+              aria-label="View All Posts"
+              class="text-sm text-neutral-600 hover:text-blue-600 flex-row flex justify-center items-center gap-1 hover:gap-2 hover:mr-[-4px] transition-all"
             >
               All Posts
               <svg
@@ -297,14 +308,13 @@ const currentYear = new Date().getFullYear();
                     ]}
                     description=""
                     href={`/writing/${post.slug}`}
-            
                   />
                 ))
             }
             <a
               href="/writing"
               title="View All Posts"
-			  aria-label="View All Posts"
+              aria-label="View All Posts"
               class="text-center hover:scale-125 transition-all w-full flex justify-center py-2 text-sm text-gray-300 hover:underline cursor-pointer hover:text-blue-600"
             >
               <svg
