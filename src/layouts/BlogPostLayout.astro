@@ -39,7 +39,8 @@ import XShare from "../components/XShare.astro";
           title: postData.title,
           type: "Article",
           image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51mLFt9mV4zxkY06o-NjZDP0-NukwVmNVog&s",
+            postData.coverImage ||
+            "https://robertjkirk.com/images/default-image.png",
         },
       }}
       extend={{
@@ -50,7 +51,8 @@ import XShare from "../components/XShare.astro";
           {
             name: "twitter:image",
             content:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51mLFt9mV4zxkY06o-NjZDP0-NukwVmNVog&s",
+              postData.coverImage ||
+              "https://robertjkirk.com/images/default-image.png",
           },
           { name: "twitter:title", content: postData.title },
           { name: "twitter:description", content: postData.description },

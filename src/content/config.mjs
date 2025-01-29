@@ -7,6 +7,7 @@ const blog = defineCollection({
     date: z.string(),
     formattedDate: z.string(),
     description: z.string(),
+    coverImage: z.string().optional(),
     readingTime: z.number(),
     tags: z.array(z.string()).optional(),
     featuredMessage: z.string().optional(),
@@ -20,6 +21,7 @@ const timeline = defineCollection({
     date: z.string(),
     formattedDate: z.string(),
     description: z.string().optional(), // optional
+    coverImage: z.string().optional(), // optional
     readingTime: z.number(),
     tags: z.array(z.string()).optional(), // optional
     featuredMessage: z.string().optional(), // optional
@@ -33,6 +35,7 @@ const legal = defineCollection({
     date: z.string(),
     formattedDate: z.string(),
     description: z.string().optional(), // optional
+    coverImage: z.string().optional(), // optional
     readingTime: z.number(),
     tags: z.array(z.string()).optional(), // optional
     featuredMessage: z.string().optional(), // optional
