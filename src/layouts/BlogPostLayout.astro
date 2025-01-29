@@ -1,54 +1,64 @@
 ---
 import Layout from "./Layout.astro";
 
+import { SEO } from "astro-seo";
+
 // src/layouts/BlogPostLayout.astro
+
+interface PostData {
+  title: string;
+  description: string;
+  date: string;
+  formattedDate: string;
+  readingTime: number;
+  tags: string[];
+  slug: string;
+  image: string;
+  siteUrl: string;
+}
+
 const { postData } = Astro.props;
+// const postData: PostData = pd;
 import ShareButton from "../components/ShareButton.astro";
 import XShare from "../components/XShare.astro";
 
-const siteUrl = postData.siteUrl || Astro.site || "https://yoursite.com";
-const canonicalURL = new URL(postData.slug, siteUrl).toString();
-const imageUrl = postData.image
-  ? new URL(postData.image, siteUrl).toString()
-  : "";
+// const siteUrl = postData.siteUrl || Astro.site || "https://robertjkirk.com";
+// const canonicalURL = new URL(postData.slug, siteUrl).toString();
+// const imageUrl = postData.image
+//   ? new URL(postData.image, siteUrl).toString()
+//   : "";
 ---
 
 <Layout>
   <Fragment slot="head">
-    <!-- Basic Meta Tags -->
-    <title>{postData.title}</title>
-    <meta name="description" content={postData.description} />
-    <link rel="canonical" href={canonicalURL} />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={postData.title} />
-    <meta property="og:description" content={postData.description} />
-    {imageUrl && <meta property="og:image" content={imageUrl} />}
-    <meta property="og:site_name" content="Your Site Name" />
-    {
-      postData.author && (
-        <meta property="article:author" content={postData.author} />
-      )
-    }
-    <meta property="article:published_time" content={postData.date} />
-
-    <!-- Twitter -->
-    <meta
-      name="twitter:card"
-      content={imageUrl ? "summary_large_image" : "summary"}
+    <SEO
+      title={postData.title}
+      description={postData.description}
+      openGraph={{
+        basic: {
+          title: postData.title,
+          type: "Article",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51mLFt9mV4zxkY06o-NjZDP0-NukwVmNVog&s",
+        },
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51mLFt9mV4zxkY06o-NjZDP0-NukwVmNVog&s",
+          },
+          { name: "twitter:title", content: postData.title },
+          { name: "twitter:description", content: postData.description },
+        ],
+      }}
     />
-    <meta name="twitter:url" content={canonicalURL} />
-    <meta name="twitter:title" content={postData.title} />
-    <meta name="twitter:description" content={postData.description} />
-    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
-
-    <!-- Optional: If you have a Twitter handle -->
-    <!-- <meta name="twitter:site" content="@yourusername" /> -->
-    <!-- <meta name="twitter:creator" content="@yourusername" /> -->
   </Fragment>
-  <div class="min-h-screen p-4 xl:p-8 transition-all">
+  <div class="min-h-screen p-4 px-1 xl:p-8 transition-all">
     <div class="max-w-3xl mx-auto">
       <!-- Header with Back Link -->
       <!-- <nav class="mb-12">

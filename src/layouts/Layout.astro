@@ -1,8 +1,13 @@
 ---
 const currentYear = new Date().getFullYear();
 import rjk from "../assets/rjk.svg";
+import { SEO } from "astro-seo";
 
 import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  head?: any;
+}
 ---
 
 <!doctype html>
@@ -13,6 +18,8 @@ import { ClientRouter } from "astro:transitions";
   transition:animate="none"
 >
   <head>
+    <slot name="head" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,13 +30,12 @@ import { ClientRouter } from "astro:transitions";
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "33eee5331e1d41cd9abfa65cefddfc8a"}'></script>
-    <!-- End Cloudflare Web Analytics -->
-    <!-- <ClientRouter /> -->
   </head>
   <body class="">
     <a
       href="/"
       aria-label="rk logo"
+      data-astro-prefetch
       transition:animate="none"
       class="fixed z-50 left-4 top-4 xl:left-8 xl:top-8 scale-75 sm:scale-100 transition-all antialiased hover:scale-[1.02]"
     >
@@ -79,6 +85,7 @@ import { ClientRouter } from "astro:transitions";
               <a
                 href="/"
                 aria-label="home"
+                data-astro-prefetch
                 class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 dark:hover:bg-white/5 xl:rounded-bl-md xl:rounded-tr-3xl rounded-tl-3xl rounded-bl-3xl transition-all duration-300 group flex items-center gap-2"
               >
                 <svg
@@ -102,6 +109,7 @@ import { ClientRouter } from "astro:transitions";
               <a
                 href="/timeline"
                 aria-label="timeline"
+                data-astro-prefetch
                 class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 group"
               >
                 <svg
@@ -123,6 +131,7 @@ import { ClientRouter } from "astro:transitions";
               <a
                 href="/writing"
                 aria-label="writing"
+                data-astro-prefetch
                 class="py-1 px-3 xl:p-3 rounded-md hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 group"
               >
                 <svg
@@ -150,6 +159,7 @@ import { ClientRouter } from "astro:transitions";
               <a
                 href="/contact"
                 aria-label="contact"
+                data-astro-prefetch
                 class="py-1 px-3 xl:p-3 rounded-md xl:rounded-bl-3xl rounded-br-3xl rounded-bl-md rounded-tr-3xl xl:rounded-tr-md hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 group"
               >
                 <svg

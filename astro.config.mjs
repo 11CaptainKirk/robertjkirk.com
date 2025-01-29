@@ -9,6 +9,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
   site: "https://robertjkirk.com",
   integrations: [react(), tailwind(), mdx()],
 });
