@@ -21,12 +21,15 @@ const { postData } = Astro.props;
 // const postData: PostData = pd;
 import ShareButton from "../components/ShareButton.astro";
 import XShare from "../components/XShare.astro";
+// import { getImage } from "astro:assets";
 
 // const siteUrl = postData.siteUrl || Astro.site || "https://robertjkirk.com";
 // const canonicalURL = new URL(postData.slug, siteUrl).toString();
 // const imageUrl = postData.image
 //   ? new URL(postData.image, siteUrl).toString()
 //   : "";
+
+// const coverImg = await getImage({ src: postData.coverImage });
 ---
 
 <Layout>
@@ -38,9 +41,7 @@ import XShare from "../components/XShare.astro";
         basic: {
           title: postData.title,
           type: "Article",
-          image:
-            postData.coverImage ||
-            "https://robertjkirk.com/images/default-image.png",
+          image: "https://robertjkirk.com/images/default-image.png",
         },
       }}
       extend={{
@@ -50,9 +51,7 @@ import XShare from "../components/XShare.astro";
         meta: [
           {
             name: "twitter:image",
-            content:
-              postData.coverImage ||
-              "https://robertjkirk.com/images/default-image.png",
+            content: "https://robertjkirk.com/images/default-image.png",
           },
           { name: "twitter:title", content: postData.title },
           { name: "twitter:description", content: postData.description },

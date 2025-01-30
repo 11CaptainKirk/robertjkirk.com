@@ -9,19 +9,79 @@ tags: ["Longhorn Racing", "Student Org", "2022 - Present"]
 
 import { Image } from "astro:assets";
 import lhr_car from "../../assets/lhr_car.webp";
+import lhr_car_video from "../../assets/lhr_video.mp4";
 
 import ImageCaption from "../../components/ImageCaption.astro";
 
-# Longhorn Racing Electric
 
-<ImageCaption
-  src={lhr_car}
-  alt="LHRE Car"
-  sourceText="LHRE"
-  sourceLink="https://longhornracing.org/"
+
+{/* <video
+  autoplay
+  loop
+  muted
+  playsinline
+  className="w-full rounded-lg shadow-lg aspect-video content-stretch"
 >
-  The LHRE car at competition
-</ImageCaption>
+  <source src={lhr_car_video} type="video/mp4" />
+</video> */}
+
+{/* <video
+  autoplay
+  loop
+  muted
+  playsinline
+  className="w-full rounded-lg shadow-lg  mask-gradient"
+>
+  <source src={lhr_car_video} type="video/mp4" />
+</video>
+
+<style jsx>{`
+  .mask-gradient {
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  }
+`}</style> */}
+
+<div className="relative w-full rounded-2xl shadow-lg overflow-hidden -mt-16">
+  {/* Video */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-full object-cover rounded-2xl aspect-square mask-gradient"
+  >
+    <source src={lhr_car_video} type="video/mp4" />
+  </video>
+
+  {/* Overlay with Gradient Mask */}
+  <div className="absolute inset-0 mask-gradient"></div>
+
+  {/* Text Overlay */}
+  <div className="absolute top-16 flex flex-col justify-end items-start gap-2 px-6 not-prose">
+    <h1 class="text-white text-xl md:text-5xl font-bold  ">
+      Longhorn Racing Electric
+    </h1>
+    <p className="text-white text-lg opacity-90 mt-0 max-w-lg">
+      LHRE designs, builds, and competes with a new formula SAE electric car each year.
+    </p>
+  </div>
+</div>
+
+<style jsx>{`
+  .mask-gradient {
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  }
+`}</style>
+
+
+
+
+
+
+
+
 
 Developing electronics and software for FSAE electric race cars:
 
@@ -29,3 +89,12 @@ Developing electronics and software for FSAE electric race cars:
 - Contributed to firmware & software for the vehicles.
 - Collaborated with teammates to optimize architecture and maximize our result at competition.
 - Delivered lectures to peers on topics such as EMI-optimized design and design for manufacturability (DFM).
+
+<ImageCaption
+  src={lhr_car}
+  alt="LHRE Car"
+  sourceText="LHRE"
+  sourceLink="https://longhornracing.org/"
+>
+  The LHRE 'Angelique' car at competition
+</ImageCaption>
