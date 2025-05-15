@@ -118,12 +118,12 @@ import XShare from "../components/XShare.astro";
           <p class="text-xl text-gray-600 dark:text-neutral-400">
             {postData.description}
           </p>
-          <div class="flex flex-wrap mt-2">
+          <div class="flex flex-wrap mt-1">
             {
               postData.tags &&
                 postData.tags.map((tag: string, index: number) => {
                   return (
-                    <span class=" bg-gray-100 text-gray-500 dark:text-neutral-500 dark:bg-neutral-500/30 text-sm px-2 py-1 rounded-full mt-4 mr-2">
+                    <span class=" bg-gray-100 text-gray-500 dark:text-neutral-500 dark:bg-neutral-600/30 text-sm px-2 py-0.5 rounded-lg mt-4 mr-2">
                       {tag}
                     </span>
                   );

@@ -1,15 +1,90 @@
 ---
-title: "Contemporary Manufacturing"
-date: "2025-01-29"
-formattedDate: "January 29, 2025"
-description: "Peering into the future of manufacturing."
+title: "Modern Manufacturing"
+date: "2025-05-15"
+formattedDate: "May 15, 2025"
+description: "A deep dive into the economics of automation and the future of manufacturing."
 coverImage: "../../assets/china_factory.png"
-readingTime: 1
+readingTime: 8
 tags: ["manufacturing", "technology", "future"]
 ---
 
 import { Image } from "astro:assets";
 import ImageCaption from "../../components/ImageCaption.astro";
 import china from "../../assets/china_factory.png";
+import Aside from "../../components/Aside.astro";
 
-Coming 1/29/2025: A look into the future of manufacturing.
+
+# The Hidden Power of Human Manufacturing
+
+In the modern era of manufacturing, the obvious solution when optimizing a process is to automate it. Humans are expensive, have rights, and can only work limited hours. Robots, by comparison, are virtually free once deployed. Automated lines can operate 24/7, and with optimization, outperform humans in speed and defect rates. With robots, network-connected assembly lines, and AI, it's easy to conclude that automation should drive design. Despite this strong appeal, the reality is that automating too early in the product lifecycle is often a costly mistake.
+
+
+
+## The Manufacturing Methodology of Tesla
+
+Tesla's approach to manufacturing—famous for its speed, visibility, and efficiency—has become the modern gold standard. To reach this status of efficiency, Tesla learned many lessons the hard way. Automation is the obvious solution when optimizing for efficiency, but in most cases, it's not the best solution, at least not at first. 
+
+<div class="flex flex-col gap-4 bg-neutral-100 dark:bg-neutral-900/70  p-8 rounded-lg">
+    <span class="text-lg font-bold">Elon Musk's 5-Step Engineering Process</span>
+    <div class="text-lg text-neutral-500/70  flex flex-col ">
+    <span class="hover:text-blue-500 transition-colors duration-300">1. Make the requirements less dumb.</span> 
+    <span class="hover:text-blue-500 transition-colors duration-300">2. Delete the part or process.</span> 
+    <span class="hover:text-blue-500 transition-colors duration-300">3. Simplify or optimise the design.</span> 
+    <span class="hover:text-blue-500 transition-colors duration-300">4. Accelerate cycle time.</span> 
+    <span class="font-bold text-blue-500 transition-colors duration-300">5. Automate.</span> 
+    </div>
+    <span class="text-sm text-neutral-500/70">[Source](https://youtu.be/t705r8ICkRw?si=nuF8BYQV457Pqv7z&t=805)</span>
+</div>
+
+In high-stakes decision making and project execution, defining heuristics to guide the process is critical. Elon Musk's 5-step process is a great example of how to approach a complex problem. Rather than trying to instantly come to the solution, the process works up from fundamental principles via inductive reasoning. Notice that Automation is the final step of the process. Trying to automate initially is like trying to one-shot the solution to a complex problem which isn't even fully defined yet.
+
+<Aside>
+  Software's fast iteration cycles have led to many optimization principles applicable to hardware and manufacturing. Modern Engineering principles are often very different from what's taught in academia. This could be an interesting topic to explore in the future.
+</Aside>
+
+## Adaptable Manufacturing
+
+Imagine an impossibly capable machine that can build nearly anything with minimal reconfiguration, switching between different tasks at a moments notice, solving unforeseen problems on the fly to maintain productivity. **That machine is the human.**
+
+The unmatched flexibility of human workers is critical when developing new technologies. Their adaptability allows rapid experimentation, process adjustments, and problem-solving in ways that machines cannot match during early-stage manufacturing.
+
+## Iteration at Human speed
+
+Iteration is essential. Even the best engineers can't predict every design flaw or future requirement. For example, while designing the injection-molded enclosure for my IoT lighting product, I faced rapid changes and benefited from human involvement:
+
+- 3D printing helped validate fitment but couldn't replicate real molding.
+- Issues such as sink marks were only discovered during actual production.
+- The Chinese manufacturer offered to hand-polish flawed parts immediately—something no machine line could adapt to on-the-fly.
+
+## The Scale Paradox
+
+We've established that normally manual methods are actually *more* efficient in early development. Even once scale production begins, though, manual production is not always a bad solution. Automation only makes sense if the economics align:
+
+- Setup costs
+- Retooling
+- Changeover times
+- Risk of changes post-deployment
+
+Very often, solutions developed in the early stages of development can be scaled sufficiently to support significant production runs. The cost of automation and reduced flexibility it brings must be carefully weighed against the efficiency benefits of automation which will only be felt after significant production runs.
+
+# The Reality of Chinese Manufacturing in 2025
+
+Everyone knows the steryotypes about products made in China: they're cheap, low quality, and made by workers in poor conditions. While these stereotypes are often true, they're increasingly not representative of the modern Chinese manufacturing landscape.
+
+Many manufacturers in China now have capabilities to produce high quality products via agile manufacturing processes. They're able to quickly adapt to changes in design and production requirements, and they're able to rapidly produce truly high quality products at reasonable costs.
+
+## Responsiveness and Problem Resolution
+
+A commonly cited issue with overseas manufacturing is communication. While it definitely is a real challenge, I was often surprised by the quality of the customer service offered by factories in China, and ran into fewer miscommunication issues than I would have anticipated given the language barrier. Especially for a smaller manufacturing run, it is very hard to find the kind of white glove service you get from a small factory in China in the US. The salespeople were always eager to creatively solve problems and even contributed engineering resources to finding a resolution. Many are often also available 24/7 and respond within minutes. 
+
+## Cultural Communication Nuances
+While my overall experience was generally very good, it's important to acknowledge that there were absolutely hurdles. Many of the difficulties of manufacturing in China are fortunately simply due to cultural differences and can be solved by learning how to do business in China and via a few strategies. 
+
+<Aside>
+One excellent resource is Paul Midler's *Poorly Made in China*. It's somewhat outdated as Chinese manufacturing has evolved rapidly, but the lessons and discussion of Chinese culture are still absolutely relevant. 
+</Aside>
+
+The most significant issue I ran into was repeated breakdowns in communication between the engineers implementing my manufacturing process and the salesperson with whom I was speaking. The salesperson often spoke fairly good English, but did not have the engineering background to understand the key details of what I was explaining. Even worse, the responses from the engineers in China, when relayed through the salesperson, were often confusing at best. I solved this problem by simply communicating in Chinese. I could use AI models to translate between English and Chinese. They have both the engineering knowledge to understand the details and a strong understanding of both languages. I got much better results with this method than traditional translation tools (especially better than Chinese translation tools) because I could encode the key details to the model and it was able to retain the semantic meaning in addition to the literal translation.
+
+## Ecosystem Density and Supplier Leverage
+
